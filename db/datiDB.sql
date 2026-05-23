@@ -1,3 +1,5 @@
+USE Gruppi_Studenti;
+
 -- Studenti --
 INSERT INTO Studenti
 VALUES('0001081674', 'Irene', 'Borri', 'irene.borri@studio.unibo.it', 'ireneprojweb', '');

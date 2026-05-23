@@ -26,7 +26,7 @@ CREATE TABLE Corsi(
     Descrizione MEDIUMTEXT,
     CFU INT NOT NULL,
     ProgettoRichiesto BOOL NOT NULL,
-    CHECK(length(Codice)>=5)
+    CHECK(length(Codice)=5)
 );
 
 CREATE TABLE Docenti(

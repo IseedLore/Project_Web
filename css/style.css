@@ -1,0 +1,27 @@
+header{
+    background-color: #EE964B;
+}
+
+header nav ul li a:hover{
+    color: #2596BB !important;
+}
+
+footer{
+    background-color: #EE964B ;
+}
+
+/* Pagina corsi */
+main section ul li{
+    list-style: none;
+    background-color: #FDF4D9;
+}
+
+main section ul li a:hover{
+    color: #FDF4D9 !important;
+}
+
+*{
+    color: #1F272B;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+}

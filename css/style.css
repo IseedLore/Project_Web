@@ -2,12 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #1F272B;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 html, body{
     height: 100% ;
-
 }
+
 body {
     min-height: 100vh;
     display: flex;
@@ -190,10 +192,4 @@ main section ul li{
 
 main section ul li a:hover{
     color: #FDF4D9 !important;
-}
-
-*{
-    color: #1F272B;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 0;
 }

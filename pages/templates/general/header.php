@@ -5,7 +5,7 @@
     <nav class="nav">
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="#">Corsi</a></li>
+            <li><a href="corsi.php">Corsi</a></li>
             <li><a href="#">Gruppi</a></li>
             <?php if (!isUserLoggedIn()): ?>
                 <li><a href="#">Crea Gruppo</a></li>

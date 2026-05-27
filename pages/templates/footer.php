@@ -1,3 +1,3 @@
 <footer>
-    <p>&copy; 2026 StudyConnect - Progetto Universitario</p>
+    <p>Progetto Tecnologie Web - A.A. 2025/2026</p>
 </footer>

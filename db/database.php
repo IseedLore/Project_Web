@@ -23,6 +23,13 @@
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function getCorsi(){
+            $stmt = $this->db->prepare("SELECT * FROM corsi");
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
 
     }
 ?>

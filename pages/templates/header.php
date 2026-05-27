@@ -1,13 +1,13 @@
 <header>
     <div class="logo">
-        <a href="index.php"><h1>StudyConnect</h1></a>
+       <h1>StudyConnect</h1>
     </div>
     <nav class="nav">
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="#">Corsi</a></li>
             <li><a href="#">Gruppi</a></li>
-            <?php if (isUserLoggedIn()): ?>
+            <?php if (!isUserLoggedIn()): ?>
                 <li><a href="#">Crea Gruppo</a></li>
                 <li class="dropdown nav-button-img">
                     <img src="#" alt="Profile image" class="profile-img">

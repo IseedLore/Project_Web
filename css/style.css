@@ -1,0 +1,169 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100% ;
+
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px;
+}
+
+main {
+  flex: 1;
+}
+
+/*
+***************  HEADER / FOOTER  ********************
+*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    padding: 1rem 2rem;
+    background-color: #FF9800;
+    color: black;
+}
+
+.nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 8%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    background-color: #FF9800;
+    padding: 0.2rem 0;    
+    z-index: 1000;
+    border-top: 2px solid #e68900;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.nav-button-img{
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 1rem ; 
+}
+
+.dropdown{
+    margin-left: 2rem;
+    margin-right: 1rem;
+}
+
+footer {
+    text-align: center;
+    align-content: center;
+    padding: 1rem;
+    background-color: #FF9800;
+}
+
+/*
+******************* HOME ************************
+*/
+
+.home-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Una colonna */
+    gap: 20px;
+    padding: 20px;
+    padding-top: 4vh;
+    width: 100%;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+}
+
+.sidebar-suggeriti .vertical-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.card {
+    border: 2px solid #FF9800;
+    padding: 15px;
+    background: white;
+}
+
+.card-grid > .card{
+    color: blue;
+}
+
+
+
+/*
+***************** PER DESKTOP *********************
+*/
+
+@media (min-width: 992px) {
+    body {
+        padding-bottom: 0;
+    }
+
+    .nav {
+        position: static; /* Riporta la nav dentro l'header */
+        height: auto;
+        width: auto;
+        padding: 0;
+        border-top: none;
+    }
+
+    nav ul {
+        width: auto;
+        gap: 1.5rem;
+        justify-content: flex-end;
+    }
+
+    .nav-button-img{
+        position: static;
+        height: auto;
+        width: auto;
+        margin: 0;
+    }
+
+    .home-container {
+        grid-template-columns: 2.9fr 1.1fr;
+        margin: 0 auto;
+    }
+
+    .card-container{
+        padding: 500rem;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        margin-bottom: 0;
+        padding: 2vh 3rem 2vh 3rem;
+    }
+
+    .sidebar-suggeriti .vertical-list {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: none; /* Annulla le due colonne del mobile */
+    }
+}

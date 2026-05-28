@@ -19,6 +19,7 @@ body {
 
 main {
   flex: 1;
+  background-color: #FCEEC5;
 }
 
 /*
@@ -30,8 +31,7 @@ header {
     justify-content: space-between;
     align-items: center;    
     padding: 1rem 2rem;
-    background-color: #FF9800;
-    color: black;
+    background-color: #FF9800; /*oppure #EE964B?*/
 }
 
 .nav {
@@ -42,10 +42,10 @@ header {
     width: 100%;
     text-align: center;
     align-content: center;
-    background-color: #FF9800;
+    background-color: #FF9800; /*oppure #EE964B?*/
     padding: 0.2rem 0;    
     z-index: 1000;
-    border-top: 2px solid #e68900;
+    border-top: 2px solid #FF9800; 
 }
 
 nav ul {
@@ -76,7 +76,7 @@ footer {
     text-align: center;
     align-content: center;
     padding: 1rem;
-    background-color: #FF9800;
+    background-color: #FF9800; /*oppure #EE964B?*/
 }
 
 /*
@@ -107,13 +107,13 @@ footer {
 }
 
 .card {
-    border: 2px solid #FF9800;
+    border: 2px solid #FF9800; /*oppure #EE964B?*/
     padding: 15px;
     background: white;
 }
 
 .card-grid > .card{
-    color: blue;
+    color: blue; /*oppure #2596BB?*/
 }
 
 
@@ -170,26 +170,83 @@ footer {
     }
 }
 
-/*---------------------*/
 
-header{
-    background-color: #EE964B;
+
+
+/*
+***************** CORSI *********************
+*/
+.courses-main {
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-header nav ul li a:hover{
-    color: #2596BB !important;
+.courses-container{
+    width: 100%;
+    height: 100%;
+    margin: 20px 0;
 }
 
-footer{
-    background-color: #EE964B ;
-}
-
-/* Pagina corsi */
-main section ul li{
+.courses-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    column-gap: 10px;
     list-style: none;
-    background-color: #FDF4D9;
 }
 
-main section ul li a:hover{
-    color: #FDF4D9 !important;
+.course{
+    line-height: 1.5;
+    border-style: solid;
+    border-color: #2596BB;
+    border-radius: 10px;
+    background-color: #BCF1F1;
+    padding: 10px;
+    margin: 8px;
 }
+
+.course h2{
+    color: #2596BB;
+}
+
+.course a{
+    background-color: #2596BB;
+    border-style: solid;
+    border-color: #2596BB;
+    border-radius: 5px;
+    text-decoration: none;
+    float: right;
+}
+
+.course a:hover{
+    color: #FCEEC5;
+}
+
+
+/*
+***************** DESKTOP *********************
+*/
+
+@media screen and (min-width:768px){
+    .courses-list{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        list-style: none;
+    }
+
+    .course{
+        line-height: 1.5;
+        border-style: solid;
+        border-color: #2596BB;
+        border-radius: 10px;
+        background-color: #BCF1F1;
+        padding: 10px;
+        margin: 8px;
+    }
+}
+

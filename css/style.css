@@ -212,6 +212,7 @@ footer {
 
 .course h2{
     color: #2596BB;
+    margin-bottom: 8px;
 }
 
 .course a{
@@ -227,6 +228,41 @@ footer {
     color: #FCEEC5;
 }
 
+.teachers-list ul{
+    text-indent: 15px;
+    list-style: disc;
+    list-style-position: inside;
+    padding-bottom: 8px;
+}
+
+.search-bar-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    height: 30px;
+    margin: 20px 20%;
+    border-style: solid;
+    border-color: #FF9800;
+    border-radius: 15px;
+}
+
+.search-bar-form input{
+    background-color: #FCEEC5;
+    border: none;
+    outline: none;
+    width: 150px;
+}
+
+.search-bar-form button{
+    background-color: #FF9800;
+    color: #1F272B;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #FF9800;
+    cursor: pointer;
+    padding: 0 5px;
+}
 
 /*
 ***************** DESKTOP *********************

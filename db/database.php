@@ -31,5 +31,20 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function getDocenti(string $codiceCorso){
+            $stmt = $this->db->prepare("SELECT Docenti.* FROM Docenti, Insegnamenti 
+            WHERE Insegnamenti.CodiceDocente=Docenti.Codice AND Insegnamenti.CodiceCorso=?");
+            $stmt->bind_param('s', $codiceCorso);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getCorsiPerNome(string $nomeCorso){
+            $stmt = $this->db->prepare("SELECT * FROM Corsi WHERE Corsi.Nome LIKE '%?%';");
+            $stmt->bind_param('s', $nomeCorso);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
     }
 ?>

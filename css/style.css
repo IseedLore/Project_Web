@@ -11,7 +11,6 @@ html, body{
 }
 
 body {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     padding-bottom: 60px;
@@ -38,7 +37,7 @@ header {
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 8%;
+    height: 5rem;
     width: 100%;
     text-align: center;
     align-content: center;
@@ -48,28 +47,92 @@ header {
     border-top: 2px solid #FF9800; 
 }
 
-nav ul {
+.logo{
+    cursor: default;
+}
+
+.nav ul {
+    width: 100%;
     display: flex;
     list-style: none;
-    width: 100%;
-    justify-content: space-around;
     align-items: center;
+    height: 100%;
 }
 
-nav a {
+.nav ul li{
+    flex: 1;
+}
+
+.nav ul li:not(:nth-last-child(-n+2)) {
+    border-right: 2px solid black; 
+    height: 70%;
+    padding: 0 2rem;
+}
+.nav ul li:not(:last-child) {
+    text-align: center;
+    align-content: center; 
+    padding: 0 2rem;
+}
+
+.nav a {
+    padding: 1.5rem 1rem;
     text-decoration: none;
+    font-size: 0.9rem;    
 }
 
-.nav-button-img{
+.top-right{
     position: fixed;
     top: 0;
-    right: 0;
-    margin-top: 1rem ; 
+    right: 0;    
+    display: inline-block;
+}
+
+.nav .btn-login{
+    display: inline-block;
+    color: white;
+    background-color: #1F272B;
+    padding: 1rem;
+    margin: 0.5rem 0.5rem;    
+    padding: 1rem 2rem; 
+}
+
+.nav-profile-img{
+    height: 50px;
+    width: 50px;
 }
 
 .dropdown{
-    margin-left: 2rem;
-    margin-right: 1rem;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0.6rem 1rem 0 0; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; /* Allinea a destra rispetto al contenitore */
+    text-align: left;
+    align-content: center;
+    background-color: white;
+    min-width: 9rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1001; /* Sopra la nav */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    padding: 0.8rem 1rem !important;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown a:hover{
+    background-color: #FCEEC5;
 }
 
 footer {
@@ -78,6 +141,7 @@ footer {
     padding: 1rem;
     background-color: #FF9800; /*oppure #EE964B?*/
 }
+
 
 /*
 ******************* HOME ************************
@@ -133,28 +197,45 @@ footer {
         width: auto;
         padding: 0;
         border-top: none;
+        height: 100%;
     }
 
     nav ul {
-        width: auto;
-        gap: 1.5rem;
+        width: auto;      
+        gap: 0;
         justify-content: flex-end;
+        height: 100%;
     }
 
-    .nav-button-img{
+    .nav ul li{
+    flex: none;
+    }
+
+    nav ul li:not(:nth-last-child(-n+2)) {
+        text-align: center;
+        align-content: center;     
+        border-right: 2px solid black; 
+        height: 85%;
+    }
+
+    .nav ul li > a {
+        padding: 1rem 1rem; 
+    }
+
+    .top-right{
         position: static;
         height: auto;
         width: auto;
-        margin: 0;
+        margin: 0;  
+    }
+
+    .dropdown-content {
+        margin-right: 1rem;
     }
 
     .home-container {
         grid-template-columns: 2.9fr 1.1fr;
         margin: 0 auto;
-    }
-
-    .card-container{
-        padding: 500rem;
     }
 
     .card-grid {

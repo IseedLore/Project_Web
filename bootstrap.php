@@ -1,6 +1,6 @@
 <?php
 session_start();
-define("UPLOAD_DIR", "./upload/");
+define("UPLOAD_DIR", "../upload/");
 require_once("utils/functions.php");
 require_once("db/database.php");
 $dbh = new DatabaseHelper("localhost", "root", "", "Gruppi_Studenti", 3307);

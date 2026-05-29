@@ -7,6 +7,7 @@ if (isUserLoggedIn()) {
     $templateParams["gruppiStudio"] = $dbh->getGruppiPerTipo('studio',8);
     $templateParams["gruppiProgetto"] = $dbh->getGruppiPerTipo('progetto',8);
     $templateParams["gruppiCasuali"] = $dbh->getGruppiCasuali(8);
+    $templateParams["imgprofilo"] =  "default_profile_icon.png";
 }
 
 require "templates/general/base.php"

@@ -259,14 +259,14 @@ footer {
 */
 .courses-main {
     width: 100%;
-    padding: 0;
-    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
 
 .courses-container{
     width: 100%;
     height: 100%;
-    margin: 20px 0;
+    margin: 0;
 }
 
 .courses-list {
@@ -296,13 +296,16 @@ footer {
     margin-bottom: 8px;
 }
 
+.course div:last-child{
+    float: right;
+}
+
 .course a{
     background-color: #2596BB;
     border-style: solid;
     border-color: #2596BB;
     border-radius: 5px;
     text-decoration: none;
-    float: right;
 }
 
 .course a:hover{

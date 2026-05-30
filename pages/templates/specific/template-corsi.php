@@ -1,7 +1,7 @@
     <main class="courses-main">
-        <form action="#" method="POST" class="search-bar-form">
+        <form action="corsi.php" method="GET" class="search-bar-form">
             <span class="material-symbols-outlined">search</span>
-            <input type="text" placeholder="Cerca corso..." >
+            <input type="text" id="search-course" name="search-course" placeholder="Cerca corso..." >
             <button type="submit">Avvia ricerca</button>
         </form>
         <section class="courses-container">

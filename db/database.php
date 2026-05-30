@@ -40,7 +40,7 @@
         }
 
         public function getCorsiPerNome(string $nomeCorso){
-            $stmt = $this->db->prepare("SELECT * FROM Corsi WHERE Corsi.Nome LIKE '%?%';");
+            $stmt = $this->db->prepare("SELECT * FROM Corsi WHERE Corsi.Nome LIKE CONCAT ('%', ?, '%')");
             $stmt->bind_param('s', $nomeCorso);
             $stmt->execute();
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);

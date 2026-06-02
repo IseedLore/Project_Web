@@ -9,5 +9,8 @@
     <?php require('header.php'); ?>   
     <?php require($templateParams["page"]); ?>    
     <?php require('footer.php'); ?>
+
+    <script src="../js/script.js"></script>
 </body>
 </html>
+ 

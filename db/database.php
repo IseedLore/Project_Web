@@ -24,7 +24,7 @@
         }
 
         public function getCorsi(){
-            $stmt = $this->db->prepare("SELECT * FROM corsi");
+            $stmt = $this->db->prepare("SELECT * FROM corsi ORDER BY nome");
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -46,5 +46,43 @@
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
 
+
+        function getIncontriStudente(string $matricola) {
+        
+            $query = "SELECT i.CodiceGruppo, g.Nome AS NomeGruppo, i.Data, i.Orario, i.Modalità, i.Luogo, i.Note 
+                    FROM Iscrizioni isc
+                    JOIN Gruppi g ON isc.CodiceGruppo = g.Codice
+                    JOIN Incontri i ON g.Codice = i.CodiceGruppo
+                    WHERE isc.MatricolaStudente = ?
+                    ORDER BY i.Data ASC, i.Orario ASC";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $matricola);
+            $stmt->execute();
+            
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);                
+        }
+
+        function getGruppiSuggeriti(string $matricola, int $limit) {
+        
+            $query = "SELECT g.Codice, g.Nome, g.Descrizione, g.NumeroMembri, g.NumeroMembriAttuale, g.Tipo, c.Nome AS NomeCorso
+                FROM Gruppi g
+                JOIN Preferenze p ON g.CodiceCorso = p.CodiceCorso
+                JOIN Corsi c ON g.CodiceCorso = c.Codice
+                WHERE p.MatricolaStudente = ?
+                    AND g.Codice NOT IN (
+                        SELECT CodiceGruppo 
+                        FROM Iscrizioni 
+                        WHERE MatricolaStudente = ?
+                    )
+                ORDER BY RAND()
+                LIMIT ?";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssi', $matricola, $matricola, $limit);
+            $stmt->execute();
+            
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);                
+        }
     }
 ?>

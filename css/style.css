@@ -350,7 +350,7 @@ footer {
     margin-bottom: 8px;
 }
 
-.course a{
+.course input{
     background-color: #2596BB;
     border-style: solid;
     border-color: #2596BB;
@@ -359,7 +359,7 @@ footer {
     float: right;
 }
 
-.course a:hover{
+.course input:hover{
     color: #FCEEC5;
 }
 

@@ -404,6 +404,20 @@ footer {
 ***************** GRUPPI *********************
 */
 
+.groups-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.groups-main .top-bar{
+    order: 1;
+}
+
+.groups-container{
+    order: 3;
+}
+
 .group{
     line-height: 1.5;
     border-style: solid;
@@ -432,9 +446,82 @@ footer {
 }
 
 .groups-aside{
+    order: 2;
+    display: flex;
+    width: 80%;
+    margin: 30px 10%;
+    padding: 20px;
+    border-style: solid;
+    border-color: #FF9800;
+    border-radius: 3px;
+    justify-content: center;
+}
+
+.groups-aside form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.groups-aside h2{
+    margin-bottom: 8px;
+}
+
+.groups-aside form div{
+    display: block;
+    padding: 2px;
+    margin: 8px;
+}
+
+.groups-aside form button{
+    background-color: #1F272B;
+    color: #FF9800;
+    border-style: solid;
+    border-color: #1F272B;
+    border-radius: 5px;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 4px;
+    width: 80px;
+}
+
+.groups-aside form button:hover{
+    color: #FCEEC5;
+}
+
+.groups-aside{
     display: none;
 }
 
+.groups-main .top-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
+}
+
+.groups-main .search-bar-form input{
+    width: 50%;
+}
+
+.filters-button-mobile{
+    width: 20%;
+    height: 30px;
+    background-color: #1F272B;
+    color: #FF9800;
+    text-decoration: none;
+    border-style: solid;
+    border-color: #1F272B;
+    border-radius: 5px;
+    float: center;
+    text-align: center;
+}
+
+.filters-button-mobile:hover{
+    color: #FCEEC5;
+    cursor: pointer;
+}
 
 /*
 ***************** DESKTOP *********************
@@ -449,7 +536,18 @@ footer {
         list-style: none;
     }
 
-    .search-bar-form input{
+    .groups-main{
+        display: inline-block;
+    }
+
+    .groups-main .top-bar .search-bar-form{
+        order: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .search-bar-form input, .groups-main .search-bar-form input{
         width: 85%;
     }
 
@@ -508,6 +606,10 @@ footer {
 
     .groups-aside form button:hover{
         color: #FCEEC5;
+    }
+
+    .filters-button-mobile{
+        display: none;
     }
 }
 

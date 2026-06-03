@@ -1,12 +1,11 @@
 <main class="home-container">
-
     <section class="cards-container">
         <h2>Gruppi Studio</h2>
         <div class="card-grid">
             <?php foreach ($templateParams["gruppiStudio"] as $gruppo): ?>
                 <div class="card">
-                    <h3><?= htmlspecialchars($gruppo['Nome']) ?></h3>
-                    <p><?= htmlspecialchars($gruppo['Descrizione']) ?></p>
+                    <h3><?= $gruppo['Nome'] ?></h3>
+                    <p><?= $gruppo['Descrizione'] ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -15,8 +14,8 @@
         <div class="card-grid">
             <?php foreach ($templateParams["gruppiProgetto"] as $gruppo): ?>
                 <div class="card">
-                    <h3><?= htmlspecialchars($gruppo['Nome']) ?></h3>
-                    <p><?= htmlspecialchars($gruppo['Descrizione']) ?></p>
+                    <h3><?= $gruppo['Nome'] ?></h3>
+                    <p><?= $gruppo['Descrizione'] ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -26,8 +25,8 @@
         <div class="vertical-list">
             <?php foreach ($templateParams["gruppiCasuali"] as $gruppo): ?>
                 <div class="card">
-                    <h3><?= htmlspecialchars($gruppo['Nome']) ?></h3>
-                    <p><?= htmlspecialchars($gruppo['Descrizione']) ?></p>
+                    <h3><?= $gruppo['Nome'] ?></h3>
+                    <p><?= $gruppo['Descrizione'] ?></p>
                 </div>
             <?php endforeach; ?>
         </div>

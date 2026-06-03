@@ -8,7 +8,7 @@
             <li><a href="corsi.php">Corsi</a></li>
             <li><a href="gruppi.php">Gruppi</a></li>
             <li><a href="#">Crea Gruppo</a></li>
-            <?php if (isUserLoggedIn()): ?>
+            <?php if (!isUserLoggedIn()): ?>
                 <li class="dropdown top-right">
                     <img src="<?php echo UPLOAD_DIR.$templateParams["imgprofilo"]; ?>" alt="Profile image" class="nav-profile-img ">
                     <div class="dropdown-content">

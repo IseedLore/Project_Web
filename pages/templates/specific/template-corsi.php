@@ -30,9 +30,7 @@
                             <?php endforeach ?>
                         </ul>
                     </div>
-                    <div>
-                        <a href="">Vai ai gruppi</a>
-                    </div>
+                    <a href="">Vai ai gruppi</a>
                 </li>
                 <?php endforeach ?>
             </ul>

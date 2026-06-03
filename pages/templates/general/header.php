@@ -6,7 +6,7 @@
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="corsi.php">Corsi</a></li>
-            <li><a href="#">Gruppi</a></li>
+            <li><a href="gruppi.php">Gruppi</a></li>
             <li><a href="#">Crea Gruppo</a></li>
             <?php if (isUserLoggedIn()): ?>
                 <li class="dropdown top-right">

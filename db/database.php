@@ -125,5 +125,49 @@
             
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);                
         }
+
+
+        public function checkLogin(string $email, string $password){
+        $query = "SELECT * FROM studenti WHERE email = ? AND password = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$email, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+
+        public function RegistrazioneUtente(string $matricola, string $nome, string $cognome, string $email, string $password) {
+            $query = "INSERT INTO studenti (Matricola, Nome, Cognome, Email, Password, Immagine) VALUES (?, ?, ?, ?, ?, NULL)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sssss',$matricola, $nome, $cognome, $email, $password);
+            $stmt->execute();
+            
+            return $stmt->insert_id;
+        }
+ 
+        public function checkRegistrazion(string $matricola, string $email) {
+            $query = "SELECT * FROM studenti WHERE matricola = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s',$matricola);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if($result->num_rows > 0){
+                return false;
+            }            
+
+            // $query = "SELECT * FROM studenti WHERE matricola = ? AND email = ?";
+            // $stmt = $this->db->prepare($query);
+            // $stmt->bind_param('ss',$matricola, $email);
+            // $stmt->execute();
+            // $result = $stmt->get_result();   
+            // if($result->num_rows > 0){
+            //     return false;
+            // }       
+            
+            // return true;
+        }
     }
+                
 ?>

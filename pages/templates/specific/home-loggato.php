@@ -31,11 +31,14 @@
     <section class="main-meetings">
         <h2>I tuoi prossimi incontri</h2>
         <div class="card-grid">
-            <?php foreach ($templateParams["prossimiIncontri"] as $incontro): ?>
+            <?php if(count($templateParams["prossimiIncontri"]) > 0) {
+                foreach ($templateParams["prossimiIncontri"] as $incontro):  ?>            
                 <div class="card">
                    
                 </div>
-            <?php endforeach; ?>
+            <?php endforeach; } else {
+                echo "Non hai prossimi incontri";
+           } ?>
         </div>
     </section>
 

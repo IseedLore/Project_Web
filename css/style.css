@@ -404,7 +404,7 @@ footer {
 ***************** GRUPPI *********************
 */
 
-.groups-main{
+.groups-main, .single-group-main{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -432,7 +432,7 @@ footer {
     margin-bottom: 8px;
 }
 
-.group a{
+.group form input{
     background-color: #FF9800;
     border-style: solid;
     border-color: #FF9800;
@@ -441,7 +441,7 @@ footer {
     float: right;
 }
 
-.group a:hover{
+.group input:hover{
     color: #FCEEC5;
 }
 
@@ -522,6 +522,96 @@ footer {
     color: #FCEEC5;
     cursor: pointer;
 }
+
+
+/*
+***************** SINGOLO GRUPPO *********************
+*/
+.single-group-main{
+    padding: 20px;
+}
+
+.single-group-info{
+    order: 1;
+    margin : 5px;
+}
+
+.single-group-next-meetings{
+    order: 2;
+    margin : 5px;
+}
+
+.single-group-members{
+    order: 3;
+    margin : 5px;
+}
+
+.single-group-main h2, .single-group-main h3{
+    color: #FF9800;
+    margin-bottom: 8px;
+}
+
+.single-group-main h3{
+    margin-top: 12px;
+}
+
+.single-group-info > p, .single-group-info > div, .single-group-members > p{
+    margin: 10px 2px;
+}
+
+.single-group-description > p:nth-child(2){
+    border-style: dotted;
+    border-color: #1F272B;
+    padding: 4px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7px;
+}
+
+.single-group-main table, .single-group-main th, .single-group-main td{
+    border: 1px solid #1F272B;
+    border-collapse: collapse;
+    padding: 3px;
+}
+
+.single-group-main table{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.single-group-members form input{
+    background-color: #FF9800;
+    border-style: solid;
+    border-color: #FF9800;
+    border-radius: 3px;
+    color: #1F272B;
+    font-weight: bold;
+    padding: 4px;
+    margin: 30px 40%;
+    width: 20%;
+    
+}
+
+.single-group-next-meetings button{
+    background-color: #2596BB;
+    border-style: solid;
+    border-color: #2596BB;
+    border-radius: 3px;
+    color: #1F272B;
+    font-weight: bold;
+    padding: 4px;
+    margin: 30px 0;
+    margin-right: 2%;
+    margin-left: 70%;
+    width: 150px;
+}
+
+.single-group-members form input:hover, .single-group-next-meetings button:hover{
+    color: #FCEEC5;
+    cursor: pointer;
+}
+
 
 /*
 ***************** DESKTOP *********************
@@ -610,6 +700,22 @@ footer {
 
     .filters-button-mobile{
         display: none;
+    }
+
+    .single-group-main{
+        display : block;
+    }
+
+    .single-group-info, .single-group-next-meetings{
+        width: 60%;
+        float: left;
+    }
+
+    .single-group-members{
+        width: 30%;
+        float: right;
+        position: relative;
+        top: 0;
     }
 }
 

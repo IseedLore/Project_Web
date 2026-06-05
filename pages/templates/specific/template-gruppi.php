@@ -24,16 +24,19 @@
                     </p>
                     <p>Corso : <?php echo $gruppo["NomeCorso"]?></p> 
                     <?php 
-                        if($gruppo["NumeroMembri"]!=0):
-                            if($gruppo["NumeroMembriAttuale"]==$gruppo["NumeroMembri"]):
+                        if($gruppo["NumeroMembriRichiesti"]!=0):
+                            if($gruppo["NumeroMembriAttuali"]==$gruppo["NumeroMembriRichiesti"]):
                                 ?> <p>Gruppo pieno (non ci sono posti liberi)</p>
                             <?php
                             else : ?>
-                                <p>Numero membri richiesti : <?php echo $gruppo["NumeroMembri"];?></p>
-                                <p>Numero membri attuali : <?php echo $gruppo["NumeroMembriAttuale"];?></p>
+                                <p>Numero membri richiesti : <?php echo $gruppo["NumeroMembriRichiesti"];?></p>
+                                <p>Numero membri attuali : <?php echo $gruppo["NumeroMembriAttuali"];?></p>
                             <?php endif; ?>
                     <?php endif; ?>
-                    <a href="">Dettagli</a>
+                    <form action="visualizzazione-gruppo.php" method="GET">
+                        <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["Codice"];?>">
+                        <input type="submit" value="Dettagli">
+                    </form>
                 </li>
                 <?php endforeach; ?>
             </ul>

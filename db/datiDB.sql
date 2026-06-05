@@ -1,195 +1,72 @@
 USE Gruppi_Studenti;
 
--- Studenti --
-INSERT INTO Studenti
-VALUES('0001081674', 'Irene', 'Borri', 'irene.borri@studio.unibo.it', 'ireneprojweb', '');
-
-
 -- Docenti --
-INSERT INTO Docenti
-VALUES(1, 'Eleonora', 'Cinti');
-
-INSERT INTO Docenti
-VALUES(2, 'Antonella', 'Carbonaro');
-
-INSERT INTO Docenti
-VALUES(3, 'Mirko', 'Ravaioli');
-
-INSERT INTO Docenti
-VALUES(4, 'Roberto', 'Girau');
-
-INSERT INTO Docenti
-VALUES(5, 'Andrea', 'Piroddi');
-
-INSERT INTO Docenti
-VALUES(6, 'Luca', 'Moci');
-
-INSERT INTO Docenti
-VALUES(7, 'Luciano', 'Margara');
-
-INSERT INTO Docenti
-VALUES(8, 'Moreno', 'Marzolla');
-
-INSERT INTO Docenti
-VALUES(9, 'Vittorio', 'Maniezzo');
-
-INSERT INTO Docenti
-VALUES(10, 'Davide', 'Maltoni');
-
-INSERT INTO Docenti
-VALUES(11, 'Matteo', 'Ferrara');
-
-INSERT INTO Docenti
-VALUES(12, 'Raffaele', 'Cappelli');
-
-INSERT INTO Docenti
-VALUES(13, 'Fabrizio', 'Caselli');
-
-INSERT INTO Docenti
-VALUES(14, 'Jacopo', 'Gandini');
-
-INSERT INTO Docenti
-VALUES(15, 'Mirko', 'Viroli');
-
-INSERT INTO Docenti
-VALUES(16, 'Danilo', 'Pianini');
-
-INSERT INTO Docenti
-VALUES(17, 'Roberto', 'Casadei');
-
-INSERT INTO Docenti
-VALUES(18, 'Vittorio', 'Ghini');
-
-INSERT INTO Docenti
-VALUES(19, 'Annalisa', 'Franco');
-
-INSERT INTO Docenti
-VALUES(20, 'Luigi', 'Guiducci');
-
-INSERT INTO Docenti
-VALUES(21, 'Damiana', 'Lazzaro');
-
-INSERT INTO Docenti
-VALUES(22, 'Franco', 'Callegati');
-
-INSERT INTO Docenti
-VALUES(23, 'Stefano', 'Rizzi');
-
-INSERT INTO Docenti
-VALUES(24, 'Silvia', 'Mirri');
-
-INSERT INTO Docenti
-VALUES(25, 'Giovanni', 'Delnevo');
-
-INSERT INTO Docenti
-VALUES(26, 'Allessandro', 'Hill');
-
-INSERT INTO Docenti
-VALUES(27, 'Marco Antonio', 'Boschetti');
-
-INSERT INTO Docenti
-VALUES(28, 'Matteo', 'Golfarelli');
-
-INSERT INTO Docenti
-VALUES(29, 'Alessandra', 'Lumini');
-
-INSERT INTO Docenti
-VALUES(30, 'Alessandro', 'Ricci');
-
-INSERT INTO Docenti
-VALUES(31, 'Luisa', "Dall'Acqua");
-
-INSERT INTO Docenti
-VALUES(32, 'Gianluca', 'Moro');
-
-INSERT INTO Docenti
-VALUES(33, 'Catia', 'Prandi');
-
-INSERT INTO Docenti
-VALUES(34, 'Ciro', 'Barbone');
-
-INSERT INTO Docenti
-VALUES(35, 'Enrico', 'Fiumana');
+INSERT INTO Docenti VALUES
+(1, 'Eleonora', 'Cinti'),
+(2, 'Antonella', 'Carbonaro'),
+(3, 'Mirko', 'Ravaioli'),
+(4, 'Roberto', 'Girau'),
+(5, 'Andrea', 'Piroddi'),
+(6, 'Luca', 'Moci'),
+(7, 'Luciano', 'Margara'),
+(8, 'Moreno', 'Marzolla'),
+(9, 'Vittorio', 'Maniezzo'),
+(10, 'Davide', 'Maltoni'),
+(11, 'Matteo', 'Ferrara'),
+(12, 'Raffaele', 'Cappelli'),
+(13, 'Fabrizio', 'Caselli'),
+(14, 'Jacopo', 'Gandini'),
+(15, 'Mirko', 'Viroli'),
+(16, 'Danilo', 'Pianini'),
+(17, 'Roberto', 'Casadei'),
+(18, 'Vittorio', 'Ghini'),
+(19, 'Annalisa', 'Franco'),
+(20, 'Luigi', 'Guiducci'),
+(21, 'Damiana', 'Lazzaro'),
+(22, 'Franco', 'Callegati'),
+(23, 'Stefano', 'Rizzi'),
+(24, 'Silvia', 'Mirri'),
+(25, 'Giovanni', 'Delnevo'),
+(26, 'Allessandro', 'Hill'),
+(27, 'Marco Antonio', 'Boschetti'),
+(28, 'Matteo', 'Golfarelli'),
+(29, 'Alessandra', 'Lumini'),
+(30, 'Alessandro', 'Ricci'),
+(31, 'Luisa', "Dall'Acqua"),
+(32, 'Gianluca', 'Moro'),
+(33, 'Catia', 'Prandi'),
+(34, 'Ciro', 'Barbone'),
+(35, 'Enrico', 'Fiumana');
 
 
 -- Corsi --
-INSERT INTO Corsi
-VALUES('00013', 'Analisi Matematica', '', 12, FALSE);
-
-INSERT INTO Corsi
-VALUES('00819', 'Programmazione', '', 12, TRUE);
-
-INSERT INTO Corsi
-VALUES('58414', 'Algebra e Geometria', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('11929', 'Algoritmi e Strutture Dati', '', 12, FALSE);
-
-INSERT INTO Corsi
-VALUES('69731', 'Architetture degli Elaboratori', '', 12, FALSE);
-
-INSERT INTO Corsi
-VALUES('77776', 'Matematica Discreta e Probabilità', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('70219', 'Programmazione ad Oggetti', '', 12, TRUE);
-
-INSERT INTO Corsi
-VALUES('08574', 'Sistemi Operativi', '', 12, FALSE);
-
-INSERT INTO Corsi
-VALUES('10906', 'Basi di Dati', '', 12, TRUE);
-
-INSERT INTO Corsi
-VALUES('00405', 'Fisica', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('66736', 'Metodi Numerici', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('70226', 'Programmazione di Reti', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('09032', 'Ingegneria del Software', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('70218', 'Reti di Telecomunicazione', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('41731', 'Tecnologie Web', '', 6, TRUE);
-
-INSERT INTO Corsi
-VALUES('00884', 'Ricerca Operativa', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('70090', 'Computer Graphics', '', 6, TRUE);
-
-INSERT INTO Corsi
-VALUES('70227', 'Informatica e Diritto', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('77780', 'Sistemi Embedded e Internet-Of-Things', '', 6, TRUE);
-
-INSERT INTO Corsi
-VALUES('84339', 'Basi di Dati Avanzate', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('72796', 'Programmazione di Applicazioni Data Intensive', '', 6, TRUE);
-
-INSERT INTO Corsi
-VALUES('72787', 'Programmazione di Sistemi Mobile', '', 6, TRUE);
-
-INSERT INTO Corsi
-VALUES('17634', 'Visione Artificiale', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('72778', 'High-Performance Computing', '', 6, TRUE);
-
-INSERT INTO Corsi
-VALUES('14015', 'Crittografia', '', 6, FALSE);
-
-INSERT INTO Corsi
-VALUES('96642', 'Virtualizzazione e Integrazione di Sistemi', '', 6, FALSE);
+INSERT INTO Corsi VALUES
+('00013', 'Analisi Matematica', '', 12, FALSE),
+('00819', 'Programmazione', '', 12, TRUE),
+('58414', 'Algebra e Geometria', '', 6, FALSE),
+('11929', 'Algoritmi e Strutture Dati', '', 12, FALSE),
+('69731', 'Architetture degli Elaboratori', '', 12, FALSE),
+('77776', 'Matematica Discreta e Probabilità', '', 6, FALSE),
+('70219', 'Programmazione ad Oggetti', '', 12, TRUE),
+('08574', 'Sistemi Operativi', '', 12, FALSE),
+('10906', 'Basi di Dati', '', 12, TRUE),
+('00405', 'Fisica', '', 6, FALSE),
+('66736', 'Metodi Numerici', '', 6, FALSE),
+('70226', 'Programmazione di Reti', '', 6, FALSE),
+('09032', 'Ingegneria del Software', '', 6, FALSE),
+('70218', 'Reti di Telecomunicazione', '', 6, FALSE),
+('41731', 'Tecnologie Web', '', 6, TRUE),
+('00884', 'Ricerca Operativa', '', 6, FALSE),
+('70090', 'Computer Graphics', '', 6, TRUE),
+('70227', 'Informatica e Diritto', '', 6, FALSE),
+('77780', 'Sistemi Embedded e Internet-Of-Things', '', 6, TRUE),
+('84339', 'Basi di Dati Avanzate', '', 6, FALSE),
+('72796', 'Programmazione di Applicazioni Data Intensive', '', 6, TRUE),
+('72787', 'Programmazione di Sistemi Mobile', '', 6, TRUE),
+('17634', 'Visione Artificiale', '', 6, FALSE),
+('72778', 'High-Performance Computing', '', 6, TRUE),
+('14015', 'Crittografia', '', 6, FALSE),
+('96642', 'Virtualizzazione e Integrazione di Sistemi', '', 6, FALSE);
 
 
 -- Insegnamenti --
@@ -305,22 +182,70 @@ INSERT INTO Insegnamenti
 VALUES(35, '96642', '');
 
 
+-- Studenti --
+INSERT INTO Studenti VALUES
+('0001081674', 'Irene', 'Borri', 'irene.borri@studio.unibo.it', 'ireneprojweb', ''),
+('0001081675', 'Mario', 'Rossi', 'mario.rossi@studio.unibo.it', 'rossiM_2k08!', ''),
+('0001081676', 'Valentina', 'Marra', 'valentina.marra@studio.unibo.it', 'voqm290nja', ''),
+('0001081677', 'Francesco', 'Rossi', 'francesco.rossi@studio.unibo.it', 'frw90nkd1n9', ''),
+('0001081678', 'Luca', 'Russo', 'luca.russo@studio.unibo.it', 'lciqj0d1ns', ''),
+('0001081679', 'Giulia', 'Ferraro', 'giulia.ferraro@studio.unibo.it', '1989GMts13', ''),
+('0001081680', 'Marco', 'Bianchi', 'marco.bianchi@studio.unibo.it', 'mapdmq0921h', '');
+
+
 -- Preferenze --
-INSERT INTO Preferenze
-VALUES('77780', '0001081674');
-INSERT INTO Preferenze
-VALUES('70090', '0001081674');
-INSERT INTO Preferenze
-VALUES('00405', '0001081674');
+INSERT INTO Preferenze VALUES
+('77780', '0001081674'),
+('70090', '0001081674'),
+('00405', '0001081674'),
+('70226', '0001081675'),
+('08574', '0001081675'),
+('72778', '0001081675'),
+('41731', '0001081675'),
+('70218', '0001081675'),
+('77780', '0001081677'),
+('70219', '0001081677'),
+('14015', '0001081677'),
+('14015', '0001081678');
 
 
 -- Gruppi --
-INSERT INTO Gruppi
-VALUES(1, 'Progetto Web - Gruppi studenti', '', 2, 0, '', 'Progetto', '2026-05-04', '0001081674', '41731');
+INSERT INTO Gruppi (Nome, Descrizione, NumeroMembriRichiesti, NumeroMembriAttuali, Tipo, DataConsegnaProgetto, MatricolaCreatore, CodiceCorso) VALUES
+('Progetto Web - Gruppi studenti', "Il gruppo si pone come obiettivo quello di realizzare per il progetto del corso di Tecnologie Web un sito 
+che permette la gestione di gruppi studenteschi per lo studio e per i progetti.", 2, 0, 'Progetto', '2026-06-16', '0001081674', '41731'),
+('Web - Cineforum', "Il gruppo vuole realizzare un sito web che permette l'organizzazione di cineforum tra studenti universitari, per l'elaborato di
+Web", 4, 0, 'Progetto', '2026-09-10', '0001081675', '41731'),
+('IoTLab', 'Gruppo per svolgere lab di IOT insieme.', 0, 0, 'Studio', '', '0001081677', '77780');
+
+
+-- Iscrizioni --
+INSERT INTO Iscrizioni VALUES
+(1, '0001081674'),
+(2, '0001081675'),
+(2, '0001081676'),
+(3, '0001081677');
+
+UPDATE Gruppi 
+SET NumeroMembriAttuali=NumeroMembriAttuali+1
+WHERE Codice=1;
 UPDATE Gruppi
-SET NumeroMembriAttuale=NumeroMembriAttuale+1;
+SET NumeroMembriAttuali=NumeroMembriAttuali+2
+WHERE Codice=2;
+UPDATE Gruppi
+SET NumeroMembriAttuali=NumeroMembriAttuali+1
+WHERE Codice=3;
 
 
 -- Incontri --
-INSERT INTO Incontri
-VALUES(1, '2026-05-13', '10:30:00', 'Da remoto', '', 'Primo incontro per disctuere idee per il progetto.');
+INSERT INTO Incontri VALUES
+(1, '2026-05-13', '10:30:00', 'Da remoto', '', 'Primo incontro per disctuere idee per il progetto.'),
+(1, '2026-05-16', '10:30:00', 'Da remoto', '', 'Confronto sui mockup realizzati.'),
+(1, '2026-05-20', '10:30:00', 'Da remoto', '', 'Presentazione DB + Suddivisione lavoro.'),
+(1, '2026-05-23', '10:30:00', 'Da remoto', '', 'Decisione struttura delle cartelle + Presentazione pagine realizzate.'),
+(1, '2026-05-27', '10:30:00', 'Da remoto', '', 'Presentazione pagine realizzate.'),
+(1, '2026-05-29', '18:00:00', 'Da remoto', '', 'Ulteriore suddivisione pagine rimaste.'),
+(1, '2026-06-03', '10:30:00', 'Da remoto', '', 'Presentazione pagine realizzate.'),
+(1, '2026-06-06', '10:30:00', 'Da remoto', '', 'Presentazione pagine realizzate.'),
+(1, '2026-06-10', '10:30:00', 'Da remoto', '', 'Ultimo confronto prima della consegna.'),
+(2, '2026-06-10', '15:00:00', 'In presenza', 'Bar uni', 'Primo incontro per discutere sulla realizzazione del progetto.'),
+(2, '2026-06-15', '15:00:00', 'Da remoto', '', 'Suddivisione lavoro.');

@@ -1,7 +1,7 @@
 <main class=" home-logged-container home-container ">
     <aside class="sidebar-search">
         <form action="gruppi.php" method="GET" id="home-form">
-            <fieldset class="box-form card">
+            <fieldset class="home-box-form card">
                 <legend>Ricerca Rapida</legend>
                 <div class="form-controll">
                     <label for="visualizza">Visualizza</label>

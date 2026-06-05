@@ -7,8 +7,8 @@ if (!isUserLoggedIn()) {
     $templateParams["corsi"] = $dbh->getCorsi();
 } else {   
     $templateParams["page"] = "templates/specific/home_pubblica.php";
-    $templateParams["gruppiStudio"] = $dbh->getGruppiPerTipo('studio',8);
-    $templateParams["gruppiProgetto"] = $dbh->getGruppiPerTipo('progetto',8);
+    $templateParams["gruppiStudio"] = $dbh->getGruppiPerTipoLimit('studio',8);
+    $templateParams["gruppiProgetto"] = $dbh->getGruppiPerTipoLimit('progetto',8);
     $templateParams["gruppiCasuali"] = $dbh->getGruppiCasuali(8);
 }
     

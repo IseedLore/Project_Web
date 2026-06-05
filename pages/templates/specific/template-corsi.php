@@ -30,9 +30,10 @@
                             <?php endforeach ?>
                         </ul>
                     </div>
-                    <div>
-                        <a href="">Vai ai gruppi</a>
-                    </div>
+                    <form action="gruppi.php" method="GET">
+                        <input type="hidden" name="filter-course" id="filter-course" value="<?php echo $corso["Nome"];?>">
+                        <input type="submit" value="Vai ai gruppi">
+                    </form>
                 </li>
                 <?php endforeach ?>
             </ul>

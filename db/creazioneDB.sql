@@ -39,11 +39,10 @@ CREATE TABLE Gruppi(
 	Codice INT AUTO_INCREMENT PRIMARY KEY,
     Nome VARCHAR(100) NOT NULL,
     Descrizione MEDIUMTEXT,
-    NumeroMembri INT NOT NULL,
-    NumeroMembriAttuale INT NOT NULL,
-    Immagine VARCHAR(100),
+    NumeroMembriRichiesti INT,
+    NumeroMembriAttuali INT NOT NULL,
     Tipo VARCHAR(10) NOT NULL CHECK (Tipo IN ('Studio', 'Progetto')),
-    DataCreazione DATE NOT NULL,
+    DataConsegnaProgetto DATE,
     MatricolaCreatore VARCHAR(10) NOT NULL,
     CodiceCorso VARCHAR(5) NOT NULL,
 	FOREIGN KEY (MatricolaCreatore) REFERENCES Studenti(Matricola)
@@ -52,7 +51,7 @@ CREATE TABLE Gruppi(
 	FOREIGN KEY (CodiceCorso) REFERENCES Corsi(Codice)
 		ON DELETE CASCADE
         ON UPDATE NO ACTION,
-	CHECK(NumeroMembriAttuale<=NumeroMembri)
+    CHECK(NumeroMembriAttuali<=NumeroMembriRichiesti OR NumeroMembriRichiesti=0)
 );
 
 CREATE TABLE Incontri(

@@ -6,6 +6,7 @@ if (isUserLoggedIn()) {
     $templateParams["page"] = "templates/specific/home-loggato.php";
     $templateParams["prossimiIncontri"] = $dbh->getIncontriStudente($_SESSION["matricola"]);    
     $templateParams["gruppiSuggeriti"] = $dbh->getGruppiSuggeriti($_SESSION["matricola"], 10);
+    $templateParams["scadenzeProgetti"] = $dbh->getGruppiPerMatricola($_SESSION["matricola"]);
     $templateParams["corsi"] = $dbh->getCorsi();
 } else {   
     $templateParams["page"] = "templates/specific/home-pubblica.php";

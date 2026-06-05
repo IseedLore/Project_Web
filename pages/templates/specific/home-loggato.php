@@ -1,4 +1,4 @@
-<main class=" home-logged-container home-container ">
+<main class="home-logged-container home-container ">
     <aside class="sidebar-search">
         <form action="gruppi.php" method="GET" id="home-form">
             <fieldset class="home-box-form card">
@@ -31,37 +31,45 @@
     <section class="main-meetings">
         <h2>I tuoi prossimi incontri</h2>
         <div class="card-grid">
-            <?php if(count($templateParams["prossimiIncontri"]) > 0) {
+            <?php if(!count($templateParams["prossimiIncontri"]) == 0) {
                 foreach ($templateParams["prossimiIncontri"] as $incontro):  ?>            
                 <div class="card">
-                   
+                   <p><?= $incontro["NomeGruppo"];?><?= $incontro["Luogo"];?></p>
+                   <p><?= $incontro["Data"]; $incontro["Orario"];?></p>     
+                   <p><?= $incontro["Modalità"];?></p>                   
                 </div>
             <?php endforeach; } else {
                 echo "Non hai prossimi incontri";
            } ?>
         </div>
     </section>
-
     <aside class="sidebar-destra-home-loggato">
         <div class="sidebar-suggeriti">
+            <?php if(!count($templateParams["gruppiSuggeriti"]) == 0) { ?>
             <h2>Suggeriti per te</h2>
             <div class="vertical-list">
                 <?php foreach ($templateParams["gruppiSuggeriti"] as $suggerito): ?>
                 <div class="card">
-                    <p>
-                        <?= $suggerito["Nome"] ?> - <?= $suggerito["Tipo"] ?><br>
-                        <?= $suggerito["NomeCorso"] ?>
-                    </p>
+                    <p><?= $suggerito["Nome"] ?> - <?= $suggerito["Tipo"] ?></p>
+                    <p><?= $suggerito["NomeCorso"] ?></p>
                 </div>                    
                 <?php endforeach; ?>
             </div>
         </div>
-
+        <?php } ?>
+        <?php if(!count($templateParams["scadenzeProgetti"]) == 0) { ?>
         <div>
             <h2>Scadenze Progetti</h2>
             <div class="vertical-list">
-                
+                <div class="card">
+                    <?php foreach ($templateParams["scadenzeProgetti"] as $progetto): ?>
+                        <P>
+                            <?= $progetto["Nome"]?> - <?= $progetto["Data"] ?>
+                        </P>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </aside>
+    <?php }?>
 </main>

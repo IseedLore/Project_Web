@@ -104,8 +104,7 @@
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);                
         }
 
-        function getGruppiSuggeriti(string $matricola, int $limit) {
-        
+        function getGruppiSuggeriti(string $matricola, int $limit) {        
             $query = "SELECT g.Codice, g.Nome, g.Descrizione, g.NumeroMembriRichiesti, g.NumeroMembriAttuali, g.Tipo, c.Nome AS NomeCorso
                 FROM Gruppi g
                 JOIN Preferenze p ON g.CodiceCorso = p.CodiceCorso
@@ -208,6 +207,16 @@
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i', $codiceGruppo);
             return $stmt->execute();
+        }
+
+        public function getGruppiPerMatricola(string $matricola){
+            $query = "SELECT g.Codice, g.Nome, g.DataConsegnaProgetto AS Data FROM Gruppi g
+                    JOIN Iscrizioni I ON G.Codice = I.CodiceGruppo
+                    WHERE I.MatricolaStudente = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $matricola);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
     }
                 

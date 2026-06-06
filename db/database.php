@@ -166,5 +166,13 @@
             $stmt->bind_param('i', $codiceGruppo);
             return $stmt->execute();
         }
+
+        function getCreatoreGruppo(int $codiceGruppo){
+            $query = "SELECT * FROM Gruppi WHERE Codice=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i', $codiceGruppo);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>

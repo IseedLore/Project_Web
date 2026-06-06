@@ -35,5 +35,4 @@ filtersButton.addEventListener("click", function(){
     } else{
         groupsAside.style.display = "none";
     }
-    
 });

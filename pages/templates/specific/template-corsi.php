@@ -1,7 +1,11 @@
     <main class="courses-main">
         <form action="corsi.php" method="GET" class="search-bar-form">
             <span class="material-symbols-outlined">search</span>
-            <input type="text" id="search-course" name="search-course" placeholder="Cerca corso..." >
+            <?php if(isset($_GET["search-course"])):?>
+                <input type="text" id="search-course" name="search-course" placeholder=<?php echo $_GET["search-course"];?>>
+            <?php else:?>
+                <input type="text" id="search-course" name="search-course" placeholder="Cerca corso..." >
+            <?php endif;?>  
             <button type="submit">Avvia ricerca</button>
         </form>
         <section class="courses-container">

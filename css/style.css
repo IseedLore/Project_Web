@@ -588,8 +588,8 @@ footer {
     color: #1F272B;
     font-weight: bold;
     padding: 4px;
-    margin: 30px 40%;
-    width: 20%;
+    margin: 30px 35%;
+    width: 30%;
     
 }
 
@@ -612,6 +612,18 @@ footer {
     cursor: pointer;
 }
 
+.single-group-members p:nth-last-child(1){
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    border-color: red;
+    border-style: solid;
+    border-radius: 3px;
+    background-color: #FFFF00;
+    padding: 4px;
+    margin: 30px 25%;
+    width: 50%;
+}
 
 /*
 ***************** DESKTOP *********************
@@ -713,11 +725,12 @@ footer {
 
     .single-group-members{
         width: 30%;
-        float: right;
-        position: relative;
-        top: 0;
+        position: absolute;
+        top: 100px;
+        right: 40px;
     }
 }
+
 
 /*
 *********************** LOGIN *************************

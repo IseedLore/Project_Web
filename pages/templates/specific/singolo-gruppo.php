@@ -21,29 +21,32 @@
         </section>
         <section class="single-group-next-meetings">
            <h3>Prossimi incontri</h3>
-           <table>
-                <tr>
-                    <th id="data">Data</th>
-                    <th id="orario">Orario</th>
-                    <th id="mod">Modalità</th>
-                    <th id="luogo">Luogo</th>
-                    <th id="note">Note</th>
-                </tr>
-                <?php 
-                $incontri = $dbh->getIncontriGruppo($gruppo["CodiceGruppo"]);
-                foreach($incontri as $incontro):?>
+           <?php $incontri = $dbh->getIncontriGruppo($gruppo["CodiceGruppo"]);
+           if($incontri==NULL):?>
+                <p>Attualmente non sono programmati incontri.</p>
+            <?php else : ?>
+                <table>
                     <tr>
-                        <td headers="data"><?php echo $incontro["Data"];?></td>
-                        <td headers="orario"><?php echo $incontro["Orario"];?></td>
-                        <td headers="mod"><?php echo $incontro["Modalità"];?></td>
-                        <td headers="luogo"><?php echo $incontro["Luogo"];?></td>
-                        <td headers="note"><?php echo $incontro["Note"];?></td>
+                        <th id="data">Data</th>
+                        <th id="orario">Orario</th>
+                        <th id="mod">Modalità</th>
+                        <th id="luogo">Luogo</th>
+                        <th id="note">Note</th>
                     </tr>
-                <?php endforeach; ?>
-            </table>
-            <!-- Inserire controllo sull'utente attuale : il bottone viene mostrato 
-             solo se l'utente è loggato e se è il creatore del gruppo -->
-            <button>Modifica incontri</button>
+                    <?php foreach($incontri as $incontro):?>
+                        <tr>
+                            <td headers="data"><?php echo $incontro["Data"];?></td>
+                            <td headers="orario"><?php echo $incontro["Orario"];?></td>
+                            <td headers="mod"><?php echo $incontro["Modalità"];?></td>
+                            <td headers="luogo"><?php echo $incontro["Luogo"];?></td>
+                            <td headers="note"><?php echo $incontro["Note"];?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            <?php endif;?>
+            <?php if(isUserLoggedIn() && $_SESSION['matricola']==$templateParams["creatore-gruppo"]["MatricolaCreatore"]):?>
+                <button>Modifica incontri</button>
+            <?php endif; ?>
         </section>
         <aside class="single-group-members">
             <h3>Membri</h3>
@@ -68,10 +71,15 @@
             </table> 
             <?php if($gruppo["NumeroMembriRichiesti"]==0 || ($gruppo["NumeroMembriRichiesti"]!=0 && $gruppo["NumeroMembriAttuali"]<$gruppo["NumeroMembriRichiesti"])):?>
                 <form action="visualizzazione-gruppo.php" method="POST">
-                        <input type="hidden" name="new-enrollment-group-id" id="new-rollment-group-id" value="<?php echo $gruppo["CodiceGruppo"];?>">
-                        <input type="hidden" name="new-enrollment-student-id" id="new-rollment-student-id" value="0001081674">
+                        <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["CodiceGruppo"];?>">
+                        <input type="hidden" name="new-subscription-student-id" id="new-subscription-student-id" value="0001081678">
                         <input type="submit" value="Iscriviti al gruppo">
                 </form>
+            <?php else: ?>
+                <p>Non ci sono più posti nel gruppo</p>
+            <?php endif;?>
+            <?php if(isset($templateParams["errore"])):?>
+                <p><?php echo $templateParams["errore"];?></p>
             <?php endif;?>
         </aside>
     </main> 

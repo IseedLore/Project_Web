@@ -190,7 +190,9 @@ INSERT INTO Studenti VALUES
 ('0001081677', 'Francesco', 'Rossi', 'francesco.rossi@studio.unibo.it', 'frw90nkd1n9', ''),
 ('0001081678', 'Luca', 'Russo', 'luca.russo@studio.unibo.it', 'lciqj0d1ns', ''),
 ('0001081679', 'Giulia', 'Ferraro', 'giulia.ferraro@studio.unibo.it', '1989GMts13', ''),
-('0001081680', 'Marco', 'Bianchi', 'marco.bianchi@studio.unibo.it', 'mapdmq0921h', '');
+('0001081680', 'Marco', 'Bianchi', 'marco.bianchi@studio.unibo.it', 'mapdmq0921h', ''),
+('0001081681', 'Federico', 'Galli', 'federico.galli@studio.unibo.it', 'apokm201b0', ''),
+('0001081682', 'Annalisa', 'Fabbri', 'annalisa.fabbri@studio.unibo.it', 'halseu20cn', '');
 
 
 -- Preferenze --
@@ -206,7 +208,20 @@ INSERT INTO Preferenze VALUES
 ('77780', '0001081677'),
 ('70219', '0001081677'),
 ('14015', '0001081677'),
-('14015', '0001081678');
+('14015', '0001081678'),
+('70227', '0001081678'),
+('70227', '0001081679'),
+('14015', '0001081679'), 
+('69731', '0001081680'),
+('70218', '0001081680'),
+('72778', '0001081680'),
+('17634', '0001081681'),
+('70090', '0001081681'),
+('70090', '0001081682'),
+('72787', '0001081682'), 
+('70219', '0001081682'), 
+('41731', '0001081682'), 
+('77780', '0001081682');
 
 
 -- Gruppi --
@@ -215,7 +230,10 @@ INSERT INTO Gruppi (Nome, Descrizione, NumeroMembriRichiesti, NumeroMembriAttual
 che permette la gestione di gruppi studenteschi per lo studio e per i progetti.", 2, 0, 'Progetto', '2026-06-16', '0001081674', '41731'),
 ('Web - Cineforum', "Il gruppo vuole realizzare un sito web che permette l'organizzazione di cineforum tra studenti universitari, per l'elaborato di
 Web", 4, 0, 'Progetto', '2026-09-10', '0001081675', '41731'),
-('IoTLab', 'Gruppo per svolgere lab di IOT insieme.', 0, 0, 'Studio', '', '0001081677', '77780');
+('IoTLab', 'Gruppo per svolgere lab di IOT insieme.', 0, 0, 'Studio', '', '0001081677', '77780'),
+('Computer Graphics - Lab insieme', "L'obiettivo è svolgere attività di laboratorio di Computer Graphics insieme, svolgendo non solo gli esercizi 
+presentati a lezione, ma aggiungendo anche nuovi esercizi di approfondimento, che possono essere proposti da ogni membro. Il gruppo è indicato per chi 
+è appassionato di CG :)", 0, 0, 'Studio', '', '0001081681', '70090');
 
 
 -- Iscrizioni --
@@ -223,7 +241,9 @@ INSERT INTO Iscrizioni VALUES
 (1, '0001081674'),
 (2, '0001081675'),
 (2, '0001081676'),
-(3, '0001081677');
+(3, '0001081677'),
+(4, '0001081681'),
+(4, '0001081682');
 
 UPDATE Gruppi 
 SET NumeroMembriAttuali=NumeroMembriAttuali+1
@@ -234,6 +254,9 @@ WHERE Codice=2;
 UPDATE Gruppi
 SET NumeroMembriAttuali=NumeroMembriAttuali+1
 WHERE Codice=3;
+UPDATE Gruppi
+SET NumeroMembriAttuali=NumeroMembriAttuali+2
+WHERE Codice=4;
 
 
 -- Incontri --
@@ -248,4 +271,6 @@ INSERT INTO Incontri VALUES
 (1, '2026-06-06', '10:30:00', 'Da remoto', '', 'Presentazione pagine realizzate.'),
 (1, '2026-06-10', '10:30:00', 'Da remoto', '', 'Ultimo confronto prima della consegna.'),
 (2, '2026-06-10', '15:00:00', 'In presenza', 'Bar uni', 'Primo incontro per discutere sulla realizzazione del progetto.'),
-(2, '2026-06-15', '15:00:00', 'Da remoto', '', 'Suddivisione lavoro.');
+(2, '2026-06-15', '15:00:00', 'Da remoto', '', 'Suddivisione lavoro.'),
+(4, '2025-10-01', '17:30:00', 'Da remoto', '', 'Primo incontro per parlare delle attività che si potranno svolgere'),
+(4, '2025-10-10', '15:00:00', 'In presenza', 'Lab 2.2', 'Primo lab');

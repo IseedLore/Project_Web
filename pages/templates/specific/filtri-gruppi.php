@@ -4,8 +4,8 @@
                     <div>
                         <label for="filter-logged">Gruppi : </label>
                         <select name="filter-logged" id="filter-logged">
-                            <option>I miei gruppi</option>
                             <option>Tutti i gruppi</option>
+                            <option>I miei gruppi</option>
                         </select>
                     </div>
                 <?php endif ?>

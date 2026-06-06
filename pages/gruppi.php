@@ -17,8 +17,25 @@ if(isset($_GET["search-group"]) || (isset($_GET["filter-group-type"]) || isset($
         if(isset($_GET["filter-group-type"])){
             $templateParams["gruppi"] = $dbh->getGruppiPerTipo($_GET["filter-group-type"]);
         } 
-        /* Filtri su entrambi i campi */
-        if(isset($_GET["filter-group-type"]) && isset($_GET["filter-course"])){
+
+        /* Se lo studente è loggato e vuole vedere solo i suoi gruppi... */
+        if(isset($_GET["filter-logged"]) && $_GET["filter-logged"]=="I miei gruppi"){
+            if( $_GET["filter-group-type"]=="Tutti" && $_GET["filter-course"]=="Tutti"){
+                $templateParams["gruppi"] = $dbh->getGruppiPerStudenteLoggato($_SESSION["matricola"]);
+            } else{
+                if($_GET["filter-group-type"]!="Tutti" && $_GET["filter-course"]!="Tutti"){
+                    $templateParams["gruppi"] = $dbh->getGruppiPerStudenteLoggatoPerCorsoPerTipo($_SESSION["matricola"], $_GET["filter-course"], $_GET["filter-group-type"]);
+                } else{
+                    if($_GET["filter-group-type"]!="Tutti"){
+                        $templateParams["gruppi"] = $dbh->getGruppiPerStudenteLoggatoPerTipo($_SESSION["matricola"], $_GET["filter-group-type"]);
+                    } 
+                    if($_GET["filter-course"]!="Tutti"){
+                        $templateParams["gruppi"] = $dbh->getGruppiPerStudenteLoggatoPerCorso($_SESSION["matricola"], $_GET["filter-course"]);
+                    }
+                }
+            }
+        } else{
+            /* Se lo studente non è loggato oppure se vuole vedere tutti i gruppi (non solo quelli a cui è iscritto)... */
             if($_GET["filter-group-type"]=="Tutti" || $_GET["filter-course"]=="Tutti"){
                 if($_GET["filter-group-type"]=="Tutti" && $_GET["filter-course"]=="Tutti"){
                     $templateParams["gruppi"] = $dbh->getGruppi();

@@ -87,6 +87,38 @@
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function getGruppiPerStudenteLoggato(string $matricola){
+            $stmt = $this->db->prepare("SELECT Gruppi.Nome, Tipo, NumeroMembriRichiesti, NumeroMembriAttuali, Gruppi.Codice, Corsi.Nome AS NomeCorso
+            FROM Gruppi, Corsi WHERE Gruppi.CodiceCorso=Corsi.Codice AND Gruppi.MatricolaCreatore=?");
+            $stmt->bind_param('s', $matricola);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getGruppiPerStudenteLoggatoPerTipo(string $matricola, string $tipo){
+            $stmt = $this->db->prepare("SELECT Gruppi.Nome, Tipo, NumeroMembriRichiesti, NumeroMembriAttuali, Gruppi.Codice, Corsi.Nome AS NomeCorso
+            FROM Gruppi, Corsi WHERE Gruppi.CodiceCorso=Corsi.Codice AND Gruppi.MatricolaCreatore=? AND Gruppi.Tipo=?");
+            $stmt->bind_param('ss', $matricola, $tipo);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getGruppiPerStudenteLoggatoPerCorso(string $matricola, string $corso){
+            $stmt = $this->db->prepare("SELECT Gruppi.Nome, Tipo, NumeroMembriRichiesti, NumeroMembriAttuali, Gruppi.Codice, Corsi.Nome AS NomeCorso
+            FROM Gruppi, Corsi WHERE Gruppi.CodiceCorso=Corsi.Codice AND Gruppi.MatricolaCreatore=? AND Corsi.Nome=?");
+            $stmt->bind_param('ss', $matricola, $corso);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getGruppiPerStudenteLoggatoPerCorsoPerTipo(string $matricola, string $tipo, string $corso){
+            $stmt = $this->db->prepare("SELECT Gruppi.Nome, Tipo, NumeroMembriRichiesti, NumeroMembriAttuali, Gruppi.Codice, Corsi.Nome AS NomeCorso
+            FROM Gruppi, Corsi WHERE Gruppi.CodiceCorso=Corsi.Codice AND Gruppi.MatricolaCreatore=? AND Gruppi.Tipo=? AND Corsi.Nome=?");
+            $stmt->bind_param('sss', $matricola, $tipo, $corso);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
 
         function getIncontriStudente(string $matricola) {
         
@@ -186,7 +218,7 @@
         }
 
         public function getStudentiIscrittiGruppo(int $codiceGruppo){
-            $query = "SELECT S.Nome, S.Cognome, S.Email FROM Iscrizioni I, Studenti S
+            $query = "SELECT S.Nome, S.Cognome, S.Email, S.Matricola FROM Iscrizioni I, Studenti S
             WHERE I.MatricolaStudente=S.Matricola AND I.CodiceGruppo=?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i', $codiceGruppo);

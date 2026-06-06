@@ -71,9 +71,12 @@
             </table> 
             <?php if($gruppo["NumeroMembriRichiesti"]==0 || ($gruppo["NumeroMembriRichiesti"]!=0 && $gruppo["NumeroMembriAttuali"]<$gruppo["NumeroMembriRichiesti"])):?>
                 <form action="visualizzazione-gruppo.php" method="POST">
-                        <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["CodiceGruppo"];?>">
-                        <input type="hidden" name="new-subscription-student-id" id="new-subscription-student-id" value="0001081678">
-                        <input type="submit" value="Iscriviti al gruppo">
+                        <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["CodiceGruppo"];?>"/>
+                        <?php if(isUserLoggedIn()):?>
+                            <input type="hidden" name="new-subscription-student-id" id="new-subscription-student-id" value=<?php echo $_SESSION["matricola"];?>/>
+                        <?php endif; ?>
+                        <input type="hidden" name="new-subscription" id="new-subscription"/>
+                        <input type="submit" value="Iscriviti al gruppo"/>
                 </form>
             <?php else: ?>
                 <p>Non ci sono più posti nel gruppo</p>

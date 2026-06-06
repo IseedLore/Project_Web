@@ -104,8 +104,7 @@
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);                
         }
 
-        function getGruppiSuggeriti(string $matricola, int $limit) {
-        
+        function getGruppiSuggeriti(string $matricola, int $limit) {        
             $query = "SELECT g.Codice, g.Nome, g.Descrizione, g.NumeroMembriRichiesti, g.NumeroMembriAttuali, g.Tipo, c.Nome AS NomeCorso
                 FROM Gruppi g
                 JOIN Preferenze p ON g.CodiceCorso = p.CodiceCorso
@@ -126,16 +125,59 @@
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);                
         }
 
-        function getGruppoPerCodice(int $codice){
-            $query = "SELECT Gruppi.Nome AS NomeGruppo, Gruppi.Descrizione, Tipo, NumeroMembriRichiesti, NumeroMembriAttuali, Gruppi.Codice AS CodiceGruppo, Corsi.Nome AS NomeCorso, Corsi.Codice AS CodiceCorso 
-            FROM Gruppi, Corsi WHERE Gruppi.CodiceCorso=Corsi.Codice AND Gruppi.Codice=?";
+
+        public function checkLogin(string $email, string $password){
+            $query = "SELECT * FROM studenti WHERE email = ? AND password = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss',$email, $password);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+
+        public function RegistrazioneUtente(string $matricola, string $nome, string $cognome, string $email, string $password) {
+            $query = "INSERT INTO studenti (Matricola, Nome, Cognome, Email, Password, Immagine) VALUES (?, ?, ?, ?, ?, NULL)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sssss',$matricola, $nome, $cognome, $email, $password);
+            $stmt->execute();
+            
+            return $stmt->insert_id;
+        }
+ 
+        public function checkRegistrazion(string $matricola, string $email) {
+            $query = "SELECT * FROM studenti WHERE matricola = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s',$matricola);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if($result->num_rows > 0){
+                return false;
+            }            
+
+            // $query = "SELECT * FROM studenti WHERE matricola = ? AND email = ?";
+            // $stmt = $this->db->prepare($query);
+            // $stmt->bind_param('ss',$matricola, $email);
+            // $stmt->execute();
+            // $result = $stmt->get_result();   
+            // if($result->num_rows > 0){
+            //     return false;
+            // }       
+            
+            // return true;
+        }
+        
+        public function getGruppoPerCodice(int $codice){
+            $query = "SELECT Gruppi.Nome AS NomeGruppo, Gruppi.Descrizione, Tipo, NumeroMembriRichiesti, NumeroMembriAttuali, Gruppi.Codice AS CodiceGruppo, 
+            Corsi.Nome AS NomeCorso, Corsi.Codice AS CodiceCorso FROM Gruppi, Corsi WHERE Gruppi.CodiceCorso=Corsi.Codice AND Gruppi.Codice=?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i', $codice);
             $stmt->execute();
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
 
-        function getIncontriGruppo(int $codiceGruppo){
+        public function getIncontriGruppo(int $codiceGruppo){
             $query = "SELECT * FROM Incontri WHERE CodiceGruppo=?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i', $codiceGruppo);
@@ -143,7 +185,7 @@
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
 
-        function getStudentiIscrittiGruppo(int $codiceGruppo){
+        public function getStudentiIscrittiGruppo(int $codiceGruppo){
             $query = "SELECT S.Nome, S.Cognome, S.Email FROM Iscrizioni I, Studenti S
             WHERE I.MatricolaStudente=S.Matricola AND I.CodiceGruppo=?";
             $stmt = $this->db->prepare($query);
@@ -152,7 +194,7 @@
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
 
-        function insertNuovaIscrizioneGruppo(int $codiceGruppo, string $matricola){
+        public function insertNuovaIscrizioneGruppo(int $codiceGruppo, string $matricola){
             $query = "INSERT INTO Iscrizioni VALUES (?, ?)";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('is', $codiceGruppo, $matricola);
@@ -160,7 +202,7 @@
             return $stmt->insert_id;
         }
 
-        function updateNumeroMembriGruppo(int $codiceGruppo){
+        public function updateNumeroMembriGruppo(int $codiceGruppo){
             $query = "UPDATE Gruppi SET NumeroMembriAttuali = NumeroMembriAttuali+1 WHERE Codice=?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i', $codiceGruppo);
@@ -174,5 +216,16 @@
             $stmt->execute();
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
+
+        public function getGruppiPerMatricola(string $matricola){
+            $query = "SELECT g.Codice, g.Nome, g.DataConsegnaProgetto AS Data FROM Gruppi g
+                    JOIN Iscrizioni I ON G.Codice = I.CodiceGruppo
+                    WHERE I.MatricolaStudente = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $matricola);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
     }
+                
 ?>

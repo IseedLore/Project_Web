@@ -167,18 +167,28 @@ footer {
 
 .sidebar-suggeriti .vertical-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: (1, 1fr);
     gap: 15px;
+}
+
+ .card-grid > .card{
+    min-height: 8em;
 }
 
 .card {
     border: 2px solid #FF9800; /*oppure #EE964B?*/
     padding: 15px;
     background: white;
+    min-height: 6rem;
 }
 
-.card-grid > .card{
-    color: blue; /*oppure #2596BB?*/
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    text-align: left;
+    align-content: center;
+    justify-content: center;
 }
 
 .sidebar-destra-home-loggato {
@@ -278,9 +288,12 @@ footer {
     }
 
     .card-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         margin-bottom: 0;
         padding: 2vh 3rem 2vh 3rem;
+    }
+
+    .card-grid > .card{
+        max-width: 40em;
     }
 
     .sidebar-suggeriti .vertical-list {

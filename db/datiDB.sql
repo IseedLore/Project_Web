@@ -274,3 +274,8 @@ INSERT INTO Incontri VALUES
 (2, '2026-06-15', '15:00:00', 'Da remoto', '', 'Suddivisione lavoro.'),
 (4, '2025-10-01', '17:30:00', 'Da remoto', '', 'Primo incontro per parlare delle attività che si potranno svolgere'),
 (4, '2025-10-10', '15:00:00', 'In presenza', 'Lab 2.2', 'Primo lab');
+
+
+-- Amministratori --
+INSERT INTO Amministratori (Username, Password) VALUES
+("IreneBorri", "adminWeb2026");

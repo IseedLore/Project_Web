@@ -16,7 +16,8 @@ CREATE TABLE Studenti(
     Cognome VARCHAR(50) NOT NULL,
     Email VARCHAR(100) NOT NULL,
     Password VARCHAR(20) NOT NULL CHECK(length(Password)>=10),
-    Immagine VARCHAR(100),
+    Immagine VARCHAR(100), 
+    UNIQUE KEY (Email, Password),
     CHECK(length(Matricola)=10)
 );
 
@@ -103,3 +104,9 @@ CREATE TABLE Insegnamenti(
         ON UPDATE NO ACTION,
 	PRIMARY KEY (CodiceDocente, CodiceCorso)
 );
+
+CREATE TABLE Amministratori(
+    Username VARCHAR(50) NOT NULL, 
+    Password VARCHAR(20) NOT NULL,
+    PRIMARY KEY (Username, Password)
+)

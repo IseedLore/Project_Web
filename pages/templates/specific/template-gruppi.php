@@ -37,7 +37,7 @@
                                 <p>Numero membri attuali : <?php echo $gruppo["NumeroMembriAttuali"];?></p>
                             <?php endif; ?>
                     <?php endif; ?>
-                    <form action="visualizzazione-gruppo.php" method="POST">
+                    <form action="visualizzazione-gruppo.php" method="GET">
                         <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["Codice"];?>">
                         <input type="submit" value="Dettagli">
                     </form>

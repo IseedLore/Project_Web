@@ -5,6 +5,9 @@
             <p>Codice : <?php echo $gruppo["CodiceGruppo"];?></p>
             <p>Tipo gruppo : <?php echo $gruppo["Tipo"];?></p>
             <p>Corso : <?php echo $gruppo["NomeCorso"];?></p>
+            <?php if($gruppo["DataConsegnaProgetto"]!='0000-00-00'):?>
+                <p>Scadenza progetto : <?php echo $gruppo["DataConsegnaProgetto"]; ?></p>
+            <?php endif; ?>
             <div class="teachers-list">
                 Docenti :
                     <ul>
@@ -45,9 +48,14 @@
                 </table>
             <?php endif;?>
             <?php if(isUserLoggedIn() && $_SESSION['matricola']==$templateParams["creatore-gruppo"]["MatricolaCreatore"]):?>
-                <button>Modifica incontri</button>
+                <a class="modify-meetings-button" href="visualizzazione-gruppo.php?open-modify-meetings=true&single-group=<?php echo $gruppo["CodiceGruppo"];?>">Modifica incontri</a>
             <?php endif; ?>
         </section>
+        <?php if(isset($_GET["open-modify-meetings"]) && $_GET["open-modify-meetings"]=="true"): ?>
+            <div class="modify-meetings" id="modify-meetings">
+                <?php require($templateParams["section-modify-meetings"]);?>
+            </div>
+        <?php endif;?>
         <aside class="single-group-members">
             <h3>Membri</h3>
             <?php if($gruppo["NumeroMembriRichiesti"]!=0):?>
@@ -70,7 +78,7 @@
                 <?php endforeach; ?>
             </table> 
             <?php if($gruppo["NumeroMembriRichiesti"]==0 || ($gruppo["NumeroMembriRichiesti"]!=0 && $gruppo["NumeroMembriAttuali"]<$gruppo["NumeroMembriRichiesti"])):?>
-                <form action="visualizzazione-gruppo.php" method="POST">
+                <form action="visualizzazione-gruppo.php" method="GET">
                         <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["CodiceGruppo"];?>"/>
                         <?php if(isUserLoggedIn()):?>
                             <input type="hidden" name="new-subscription-student-id" id="new-subscription-student-id" value=<?php echo $_SESSION["matricola"];?>/>

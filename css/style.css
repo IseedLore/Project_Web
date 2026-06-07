@@ -555,7 +555,7 @@ footer {
 }
 
 .single-group-members{
-    order: 3;
+    order: 4;
     margin : 5px;
 }
 
@@ -589,8 +589,7 @@ footer {
 }
 
 .single-group-main table{
-    margin-right: auto;
-    margin-left: auto;
+    margin: 10px auto 30px auto;
 }
 
 .single-group-members form input{
@@ -606,7 +605,7 @@ footer {
     
 }
 
-.single-group-next-meetings button{
+.single-group-next-meetings a{
     background-color: #2596BB;
     border-style: solid;
     border-color: #2596BB;
@@ -614,13 +613,12 @@ footer {
     color: #1F272B;
     font-weight: bold;
     padding: 4px;
-    margin: 30px 0;
-    margin-right: 2%;
-    margin-left: 70%;
+    margin: 40px 5% 20px 70%;
     width: 150px;
+    text-decoration: none;
 }
 
-.single-group-members form input:hover, .single-group-next-meetings button:hover{
+.single-group-members form input:hover, .single-group-next-meetings a:hover{
     color: #FCEEC5;
     cursor: pointer;
 }
@@ -637,6 +635,67 @@ footer {
     margin: 30px 25%;
     width: 50%;
 }
+
+.modify-meetings{
+    background-color: #BCF1F1;
+    border-color: #2596BB;
+    border-radius: 3px;
+    border-style: dashed;
+    order: 3;
+    margin: 30px;
+    padding: 20px;
+}
+
+.modify-meetings table{
+    text-align: center;
+    margin: 20px auto;
+}
+
+.modify-meetings table a{
+    color:#2596BB;
+    text-decoration: underline;
+}
+
+.modify-meetings table a:hover{
+    cursor: pointer;
+}
+
+.modify-meetings .insert-button, .modify-meetings form ul li:nth-last-child(1) input, .modify-meetings form ul li:nth-last-child(1) a{
+    background-color: #2596BB;
+    border-style: solid;
+    border-color: #2596BB;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #1F272B;
+    font-weight: bold;
+    padding: 3px;
+    margin: 8px;
+    font-size: small;
+}
+
+.modify-meetings .insert-button{
+    float: right;
+}
+
+.modify-meetings .insert-button:hover, .modify-meetings form ul li:nth-last-child(1) input:hover, .modify-meetings form ul li:nth-last-child(1) a:hover{
+    cursor: pointer;
+    color: #BCF1F1;
+}
+
+.modify-meetings h4{
+    color: #2596BB;
+}
+
+.modify-meetings form ul{
+    list-style: none;
+    margin : 3px;
+}
+
+.modify-meetings form ul li{
+    margin: 5px;
+    padding: 2px;
+}
+
 
 /*
 ***************** DESKTOP *********************
@@ -741,6 +800,11 @@ footer {
         position: absolute;
         top: 100px;
         right: 40px;
+    }
+
+    .modify-meetings{
+        width: 50%;
+        float: left;
     }
 }
 

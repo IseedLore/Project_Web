@@ -27,12 +27,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 var filtersButton = document.getElementById("filters-button");
 
-filtersButton.addEventListener("click", function(){
-    groupsAside = document.getElementById("groups-aside");
+if(filtersButton!=null){
+    filtersButton.addEventListener("click", function(){
+        groupsAside = document.getElementById("groups-aside");
 
-    if(groupsAside.style.display=="none"){
-        groupsAside.style.display = "block";
-    } else{
-        groupsAside.style.display = "none";
-    }
-});
+        if(groupsAside.style.display=="none"){
+            groupsAside.style.display = "block";
+        } else{
+            groupsAside.style.display = "none";
+        }
+    });
+}

@@ -201,7 +201,7 @@
         }
         
         public function getGruppoPerCodice(int $codice){
-            $query = "SELECT Gruppi.Nome AS NomeGruppo, Gruppi.Descrizione, Tipo, NumeroMembriRichiesti, NumeroMembriAttuali, Gruppi.Codice AS CodiceGruppo, 
+            $query = "SELECT Gruppi.Nome AS NomeGruppo, Gruppi.Descrizione, Tipo, NumeroMembriRichiesti, NumeroMembriAttuali, Gruppi.Codice AS CodiceGruppo, Gruppi.DataConsegnaProgetto,
             Corsi.Nome AS NomeCorso, Corsi.Codice AS CodiceCorso FROM Gruppi, Corsi WHERE Gruppi.CodiceCorso=Corsi.Codice AND Gruppi.Codice=?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('i', $codice);
@@ -215,6 +215,35 @@
             $stmt->bind_param('i', $codiceGruppo);
             $stmt->execute();
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getIncontroGruppoPerId(int $codiceGruppo, string $data, string $orario){
+            $query = "SELECT * FROM Incontri WHERE CodiceGruppo=? AND Data=? AND Orario=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('iss', $codiceGruppo, $data, $orario);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function updateIncontro(int $codiceGruppo, string $data, string $orario, string $mod, string $luogo, string $note){
+            $query = "UPDATE Incontri SET Modalità=?, Luogo=?, Note=? WHERE CodiceGruppo=? AND Data=? AND Orario=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sssiss', $mod, $luogo, $note, $codiceGruppo, $data, $orario);
+            return $stmt->execute();
+        }
+
+        public function deleteIncontro(int $codiceGruppo, string $data, string $orario){
+            $query = "DELETE FROM Incontri WHERE CodiceGruppo=? AND Data=? AND Orario=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('iss', $codiceGruppo, $data, $orario);
+            return $stmt->execute();
+        }
+
+        public function insertIncontro(int $codiceGruppo, string $data, string $orario, string $mod, string $luogo, string $note){
+            $query = "INSERT INTO Incontri(CodiceGruppo, Data, Orario, Modalità, Luogo, Note) VALUES (?, ?, ?, ?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('isssss', $codiceGruppo, $data, $orario, $mod, $luogo, $note);
+            return $stmt->execute();
         }
 
         public function getStudentiIscrittiGruppo(int $codiceGruppo){

@@ -259,8 +259,8 @@
             $query = "INSERT INTO Iscrizioni VALUES (?, ?)";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('is', $codiceGruppo, $matricola);
-            $stmt->execute();
-            return $stmt->insert_id;
+
+            return $stmt->execute();
         }
 
         public function updateNumeroMembriGruppo(int $codiceGruppo){
@@ -293,8 +293,8 @@
             VALUES (?, ?, ?, 1, 'Studio', ?, ?)";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('ssiss', $nome, $descrizione, $membriRichiesti, $studente, $corso);
-
-            return $stmt->execute();
+            $stmt->execute();
+            return $stmt->insert_id;
         }
 
         public function insertGruppoProgetto(string $nome, string $descrizione, int $membriRichiesti, string $studente, string $corso, string $dataConsegna){
@@ -302,16 +302,8 @@
             VALUES (?, ?, ?, 1, 'Progetto', ?, ?, ?)";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('ssisss', $nome, $descrizione, $membriRichiesti, $studente, $corso, $dataConsegna);
-
-            return $stmt->execute();
-        }
-
-        public function insertIscrizioneNuovoGruppo(string $matricola){
-            $query = "INSERT INTO Iscrizioni (CodiceGruppo, MatricolaStudente) VALUES (LAST_INSERT_ID(), ?)";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param('s', $matricola);
- 
-            return $stmt->execute();
+            $stmt->execute();
+            return $stmt->insert_id;
         }
     }
                 

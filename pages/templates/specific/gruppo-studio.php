@@ -1,0 +1,26 @@
+            <form action="creazione-gruppo.php" method="POST" enctype="multipart/form-data">
+                <h3>Creazione gruppo studio</h3>
+                <ul>
+                    <li>
+                        <label for="nome">Nome : </label>
+                        <input type="text" name="nome" id="nome"/>
+                    </li>
+                    <li>
+                        <label for="desc">Descrizione : </br></label>
+                        <textarea name="desc" id="desc"></textarea>
+                    </li>
+                    <li>
+                        <label for="num">Numero membri richiesti : </label>
+                        <input type="number" name="num" id="num" min="0"/>
+                    </li>
+                    <li>
+                        <label for="corso">Corso : </label>
+                        <select name="corso" id="corso">
+                            <?php foreach($templateParams["corsi"] as $corso): ?>
+                                <option value="<?php echo $corso["Codice"]; ?>"><?php echo $corso["Nome"]; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </li>
+                </ul>
+                <input type="submit" name="create-group" value="Crea gruppo studio"/>
+            </form>

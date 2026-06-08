@@ -47,7 +47,7 @@ $azione = getAction($templateParams["azione"]);
             <?php endif; ?>
         </li>
         <li>
-            <label for="note">Note : </label>
+            <label for="note">Note : </br></label>
             <?php if($azione!="Inserisci"): ?>
                 <textarea id="note" name="note"><?php echo $incontro["Note"];?></textarea>
             <?php else: ?>

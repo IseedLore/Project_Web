@@ -329,5 +329,32 @@
             $stmt->execute();
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
-    }       
+           
+        public function insertGruppoStudio(string $nome, string $descrizione, int $membriRichiesti, string $studente, string $corso){
+            $query = "INSERT INTO Gruppi(Nome, Descrizione, NumeroMembriRichiesti, NumeroMembriAttuali, Tipo, MatricolaCreatore, CodiceCorso)
+            VALUES (?, ?, ?, 1, 'Studio', ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssiss', $nome, $descrizione, $membriRichiesti, $studente, $corso);
+
+            return $stmt->execute();
+        }
+
+        public function insertGruppoProgetto(string $nome, string $descrizione, int $membriRichiesti, string $studente, string $corso, string $dataConsegna){
+            $query = "INSERT INTO Gruppi(Nome, Descrizione, NumeroMembriRichiesti, NumeroMembriAttuali, Tipo, MatricolaCreatore, CodiceCorso, DataConsegnaProgetto)
+            VALUES (?, ?, ?, 1, 'Progetto', ?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssisss', $nome, $descrizione, $membriRichiesti, $studente, $corso, $dataConsegna);
+
+            return $stmt->execute();
+        }
+
+        public function insertIscrizioneNuovoGruppo(string $matricola){
+            $query = "INSERT INTO Iscrizioni (CodiceGruppo, MatricolaStudente) VALUES (LAST_INSERT_ID(), ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $matricola);
+ 
+            return $stmt->execute();
+        }
+    }
+                
 ?>

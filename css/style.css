@@ -605,7 +605,6 @@ footer {
     padding: 4px;
     margin: 30px 35%;
     width: 30%;
-    
 }
 
 .single-group-next-meetings a{
@@ -621,12 +620,12 @@ footer {
     text-decoration: none;
 }
 
-.single-group-members form input:hover, .single-group-next-meetings a:hover{
+.single-group-members form input:hover, .single-group-next-meetings a:hover, .creation-group aside a:hover{
     color: #FCEEC5;
     cursor: pointer;
 }
 
-.single-group-members p:nth-last-child(1){
+.single-group-members p:nth-last-child(1), .message-error, .message-result{
     color: red;
     font-weight: bold;
     text-align: center;
@@ -639,7 +638,7 @@ footer {
     width: 50%;
 }
 
-.modify-meetings{
+.modify-meetings, .creation-group form{
     background-color: #BCF1F1;
     border-color: #2596BB;
     border-radius: 3px;
@@ -663,7 +662,7 @@ footer {
     cursor: pointer;
 }
 
-.modify-meetings .insert-button, .modify-meetings form ul li:nth-last-child(1) input, .modify-meetings form ul li:nth-last-child(1) a{
+.modify-meetings .insert-button, .modify-meetings form ul li:nth-last-child(1) input, .modify-meetings form ul li:nth-last-child(1) a, .creation-group form > input:nth-last-child(1){
     background-color: #2596BB;
     border-style: solid;
     border-color: #2596BB;
@@ -676,27 +675,71 @@ footer {
     font-size: small;
 }
 
-.modify-meetings .insert-button{
+.modify-meetings .insert-button, .creation-group form > input:nth-last-child(1){
     float: right;
 }
 
-.modify-meetings .insert-button:hover, .modify-meetings form ul li:nth-last-child(1) input:hover, .modify-meetings form ul li:nth-last-child(1) a:hover{
+.modify-meetings .insert-button:hover, .modify-meetings form ul li:nth-last-child(1) input:hover, .modify-meetings form ul li:nth-last-child(1) a:hover, .creation-group form > input:nth-last-child(1):hover{
     cursor: pointer;
     color: #BCF1F1;
 }
 
-.modify-meetings h4{
+.modify-meetings h4, .creation-group h3{
     color: #2596BB;
 }
 
-.modify-meetings form ul{
+.modify-meetings form ul, .creation-group form ul{
     list-style: none;
     margin : 3px;
 }
 
-.modify-meetings form ul li{
+.modify-meetings form ul li, .creation-group section form ul li{
     margin: 5px;
     padding: 2px;
+}
+
+
+/*
+***************** CREA GRUPPI *********************
+*/
+.creation-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.creation-group aside{
+    order: 1;
+    display: inline;
+    margin: 40px;
+    text-align: center;
+}
+
+.creation-group aside h2{
+    font-size: large;
+    color: #FF9800;
+    margin-bottom: 20px;
+}
+
+.creation-group aside a{
+    background-color: #FF9800;
+    border-style: solid;
+    border-color: #FF9800;
+    border-radius: 3px;
+    color: #1F272B;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 4px;
+    width: 20%;
+    margin: 5px 10px;
+}
+
+.creation-group section{
+    order: 2;
+}
+
+textarea{
+    margin-left: 15px;
 }
 
 
@@ -789,7 +832,7 @@ footer {
         display: none;
     }
 
-    .single-group-main{
+    .single-group-main, .creation-group{
         display : block;
     }
 
@@ -808,6 +851,21 @@ footer {
     .modify-meetings{
         width: 50%;
         float: left;
+    }
+
+    .creation-group section{
+        width: 60%;
+        float: left;
+    }
+
+    .creation-group aside{
+        width: 30%;
+        float: right;
+        background-color: white;
+        border-color: #FF9800;
+        border-radius: 3px;
+        border-style: solid;
+        padding: 60px;
     }
 }
 

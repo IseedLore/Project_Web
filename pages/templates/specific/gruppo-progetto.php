@@ -1,0 +1,31 @@
+            <form action="creazione-gruppo.php" method="POST" enctype="multipart/form-data">
+                <h3>Creazione gruppo progetto</h3>
+                <ul>
+                    <li>
+                        <label for="nome">Nome : </label>
+                        <input type="text" name="nome" id="nome"/>
+                    </li>
+                    <li>
+                        <label for="desc">Descrizione : </br></label>
+                        <textarea name="desc" id="desc"></textarea>
+                    </li>
+                    <li>
+                        <label for="num">Numero membri richiesti : </label>
+                        <input type="number" name="num" id="num" min="0"/>
+                    </li>
+                    <li>
+                        <label for="corso">Corso : </label>
+                        <select name="corso" id="corso">
+                            <?php foreach($templateParams["corsi"] as $corso): ?>
+                                <?php if($corso["ProgettoRichiesto"]==1) :?>
+                                    <option value="<?php echo $corso["Codice"]; ?>"><?php echo $corso["Nome"]; ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="data">Data consegna progetto : </label>
+                        <input type="date" name="data" id="data"/>
+                </ul>
+                <input type="submit" name="create-group" value="Crea gruppo progetto"/>
+            </form>

@@ -5,7 +5,21 @@ $templateParams["title"] = "Gruppi Studenti - Gruppi";
 $templateParams["page"] = "templates/specific/template-gruppi.php";
 $templateParams["corsi"] = $dbh->getCorsi();
 
-if(isset($_GET["search-group"]) || (isset($_GET["filter-group-type"]) || isset($_GET["filter-course"]))){
+if (isset($_GET["visualizza"]) && isset($_GET["corsi"])) {
+    if ($_GET["visualizza"] == "miei"){
+        if(isset($_GET["tipo"])){
+           $templateParams["gruppi"] = $dbh->getGruppiPerStudenteLoggatoPerTipo($_SESSION["matricola"], "Progetto");
+        } else{
+            $templateParams["gruppi"] = $dbh->getGruppiPerStudenteLoggato($_SESSION["matricola"]);
+        }
+    } else if ($_GET["visualizza"] == "tutti") {
+        if(isset($_GET["tipo"])){
+            $templateParams["gruppi"] = $dbh->getGruppiPerTipo("Progetto");
+        } else{
+            $templateParams["gruppi"] = $dbh->getGruppi();
+        }
+    }
+} elseif(isset($_GET["search-group"]) || (isset($_GET["filter-group-type"]) || isset($_GET["filter-course"]))){
     if(isset($_GET["search-group"])){
         $templateParams["gruppi"] = $dbh->getGruppiPerNome($_GET["search-group"]);
     } else{

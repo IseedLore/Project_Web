@@ -19,6 +19,12 @@ if (isset($_GET["visualizza"]) && isset($_GET["corsi"])) {
             $templateParams["gruppi"] = $dbh->getGruppi();
         }
     }
+} elseif(isset($_GET["visualizza"])) {
+    if($_GET["visualizza"] == "appartenenza"){
+       $templateParams["gruppi"] = $dbh->getGruppiIscrittoNonCreatore($_SESSION["matricola"]);
+    } elseif($_GET["visualizza"] == "miei"){
+        $templateParams["gruppi"] = $dbh->getGruppiPerStudenteLoggato($_SESSION["matricola"]);
+    }
 } elseif(isset($_GET["search-group"]) || (isset($_GET["filter-group-type"]) || isset($_GET["filter-course"]))){
     if(isset($_GET["search-group"])){
         $templateParams["gruppi"] = $dbh->getGruppiPerNome($_GET["search-group"]);
@@ -68,8 +74,6 @@ if (isset($_GET["visualizza"]) && isset($_GET["corsi"])) {
 } else{
     $templateParams["gruppi"] = $dbh->getGruppi();
 }
-
-$templateParams["imgprofilo"] =  "default_profile_icon.png";
 
 require "templates/general/base.php";
 ?>

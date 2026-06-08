@@ -81,7 +81,5 @@ if(isset($_POST["action"])){
     }
 }
 
-$templateParams["imgprofilo"] =  "default_profile_icon.png";
-
 require "templates/general/base.php";
 ?>

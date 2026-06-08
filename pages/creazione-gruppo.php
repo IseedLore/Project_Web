@@ -40,7 +40,5 @@ if(isset($_POST["create-group"])){
     }
 }
 
-$templateParams["imgprofilo"] =  "default_profile_icon.png";
-
 require "templates/general/base.php";
 ?>

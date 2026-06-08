@@ -287,6 +287,47 @@
             $stmt->execute();
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
-    }
-                
+
+        public function getPreferencePerMatricolaLimit(string $matricola, int $limit){
+            $query = "SELECT c.Nome
+                        FROM Preferenze p
+                        JOIN Corsi c ON p.CodiceCorso = c.Codice
+                        WHERE p.MatricolaStudente = ?
+                        ORDER BY c.Nome ASC
+                        LIMIT ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('si', $matricola, $limit);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getGruppiIscrittoNonCreatore(string $matricola) {
+            $query = "SELECT g.Codice, g.Nome, g.Tipo, g.CodiceCorso, g.NumeroMembriRichiesti, g.NumeroMembriAttuali, c.Nome AS NomeCorso
+                FROM Gruppi g
+                JOIN Iscrizioni isc ON g.Codice = isc.CodiceGruppo
+                JOIN Corsi c ON g.CodiceCorso = c.Codice
+                WHERE isc.MatricolaStudente = ? AND g.MatricolaCreatore <> ?
+                ORDER BY g.Nome ASC";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss', $matricola, $matricola);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function updateImg(string $matricola,string $img) {
+            $query = "UPDATE Studenti SET Immagine = ? WHERE matricola=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss', $img , $matricola);
+            return $stmt->execute();
+        }
+
+        public function getStudente(string $matricola) {
+            $query = "SELECT * FROM Studenti WHERE matricola = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $matricola);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+    }       
 ?>

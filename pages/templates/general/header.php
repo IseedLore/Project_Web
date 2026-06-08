@@ -12,7 +12,7 @@
                 <li class="dropdown top-right">
                     <img src="<?php echo UPLOAD_DIR.$templateParams["imgprofilo"]; ?>" alt="Profile image" class="nav-profile-img ">
                     <div class="dropdown-content">
-                        <a href="#">Profilo</a>
+                        <a href="profilo.php">Profilo</a>
                         <a href="logout.php">Logout</a>
                     </div>
                 </li>

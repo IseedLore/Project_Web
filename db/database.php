@@ -178,26 +178,26 @@
             return $stmt->insert_id;
         }
  
-        public function checkRegistrazion(string $matricola, string $email) {
+        public function checkRegistrazion(string $matricola, string $email, string $password) {
             $query = "SELECT * FROM studenti WHERE matricola = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('s',$matricola);
             $stmt->execute();
             $result = $stmt->get_result();
             if($result->num_rows > 0){
-                return false;
+                return 1;
             }            
 
-            // $query = "SELECT * FROM studenti WHERE matricola = ? AND email = ?";
-            // $stmt = $this->db->prepare($query);
-            // $stmt->bind_param('ss',$matricola, $email);
-            // $stmt->execute();
-            // $result = $stmt->get_result();   
-            // if($result->num_rows > 0){
-            //     return false;
-            // }       
+            $query = "SELECT * FROM studenti WHERE email = ? AND password = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss', $email, $password);
+            $stmt->execute();
+            $result = $stmt->get_result();   
+            if($result->num_rows > 0){
+                return 2;
+            }       
             
-            // return true;
+            return 0;
         }
         
         public function getGruppoPerCodice(int $codice){

@@ -1,6 +1,10 @@
 <?php
 require_once '../bootstrap.php';
 
+if(isUserLoggedIn()){
+    header("Location: index.php");  
+}
+
 $templateParams["title"] = "StudyConnect - Login";
 $templateParams["page"] = "templates/specific/template-login.php";
 $templateParams["erroreLogin"] = "";
@@ -19,14 +23,20 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
         }
     } else { //Controllo Registrazione
         if(isset($_POST["password"]) && isset($_POST["cognome"])) {
-            // if(count($dbh->checkRegistrazion($_POST["matricola"], $_POST["email"])) == 0) {
-            if(true) {
-                $dbh->RegistrazioneUtente($_POST["matricola"], $_POST["nome"], $_POST["cognome"], $_POST["email"], $_POST["password"]);
-                registerLoggedUser($dbh->checkLogin($_POST["email"], $_POST["password"])[0]); 
-                $errore = false;
-                require "home.php";
-            } else {
-                $templateParams["erroreRegistrazione"] = "Errore! Matricola inseriti non adatti!";
+            $reg_result = $dbh->checkRegistrazion($_POST["matricola"], $_POST["email"], $_POST["password"]);
+            switch($reg_result) {
+                case 1:
+                    $templateParams["erroreRegistrazione"] = "Errore! Matricola già esistente!";
+                    break;
+                case 2:
+                    $templateParams["erroreRegistrazione"] = "Errore! Email e Password già esistenti!";
+                    break;
+                case 0:
+                    $dbh->RegistrazioneUtente($_POST["matricola"], $_POST["nome"], $_POST["cognome"], $_POST["email"], $_POST["password"]);
+                    registerLoggedUser($dbh->checkLogin($_POST["email"], $_POST["password"])[0]); 
+                    $errore = false;
+                    header("Location: index.php");    
+                    exit();     
             }
         }
     }

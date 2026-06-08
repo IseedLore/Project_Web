@@ -75,7 +75,5 @@ if (isset($_GET["visualizza"]) && isset($_GET["corsi"])) {
     $templateParams["gruppi"] = $dbh->getGruppi();
 }
 
-$templateParams["imgprofilo"] =  "default_profile_icon.png";
-
 require "templates/general/base.php";
 ?>

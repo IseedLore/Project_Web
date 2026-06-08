@@ -19,6 +19,5 @@ $templateParams["tuttePreferenze"] = $dbh->getCorsi();
 $templateParams["gruppiDelloStudente"] = $dbh->getGruppiPerStudenteLoggato($_SESSION["matricola"]);
 $templateParams["gruppiDiAppartenenza"] = $dbh->getGruppiIscrittoNonCreatore($_SESSION["matricola"]);
 
-$templateParams["imgprofilo"] =  $dbh->getStudente($_SESSION["matricola"])[0]["Immagine"];
 require "templates/general/base.php";
 ?>

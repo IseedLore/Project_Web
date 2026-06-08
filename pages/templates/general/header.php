@@ -1,3 +1,14 @@
+<?php
+if(isUserLoggedIn()){
+    $img = $dbh->getStudente($_SESSION["matricola"])[0]["Immagine"];
+    if($img == "" || $img == null) {
+        $img = "default_profile_icon.png";
+    }
+} else {
+    $img = "default_profile_icon.png";
+}
+$templateParams["imgprofilo"] = $img;
+?>
 <header>
     <div class="logo">
        <h1>StudyConnect</h1>

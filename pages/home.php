@@ -14,9 +14,6 @@ if (isUserLoggedIn()) {
     $templateParams["gruppiProgetto"] = $dbh->getGruppiPerTipoLimit('progetto',8);
     $templateParams["gruppiCasuali"] = $dbh->getGruppiCasuali(8);
 }
-    
-
-$templateParams["imgprofilo"] =  "default_profile_icon.png";
 
 require "templates/general/base.php"
 ?>

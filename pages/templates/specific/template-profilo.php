@@ -33,7 +33,11 @@
                         <?php foreach($templateParams["tuttePreferenze"] as $preference): ?>
                         <div class="pref-check-row">
                             <label for="<?= $preference["Nome"]?>"><?= $preference["Nome"]?> </label>
-                            <input type="checkbox" id="<?=$preference["Nome"]?>" name="prefs[]" value="<?=$preference["Nome"]?>" />
+                            <input type="checkbox" id="<?=$preference["Nome"]?>" name="prefs[]" value="<?=$preference["Nome"]?>"
+                            <?php $prfStudente = array_column($templateParams["preferenzeStudente"], "Nome");
+                            if(in_array($preference["Nome"], $prfStudente)) {
+                                echo 'checked="checked"'; 
+                            }?>/>
                         </div>
                         <?php endforeach ?>
                     </div>

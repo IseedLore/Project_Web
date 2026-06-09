@@ -3,9 +3,9 @@
             <form action="gruppi.php" method="GET" class="search-bar-form">
                 <label for="search-group"><img src="<?php echo UPLOAD_DIR.$templateParams["searchicon"]; ?>" alt="Icona ricerca"></label>
                 <?php if(isset($_GET["search-group"])):?>
-                    <input type="text" id="search-group" name="search-group" placeholder=<?php echo $_GET["search-group"];?> />
+                    <input type="text" id="search-group" name="search-group" placeholder=<?php echo $_GET["search-group"];?> autocomplete="off" />
                 <?php else:?>
-                    <input type="text" id="search-group" name="search-group" placeholder="Cerca gruppo..." />
+                    <input type="text" id="search-group" name="search-group" placeholder="Cerca gruppo..." autocomplete="off"/>
                 <?php endif;?>  
                 <button type="submit">Avvia ricerca</button>
             </form>

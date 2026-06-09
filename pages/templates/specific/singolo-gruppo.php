@@ -59,10 +59,12 @@
         <aside>
             <section class="single-group-members">
                 <h3>Membri</h3>
-                <?php if($gruppo["NumeroMembriRichiesti"]!=0):?>
-                    <p>Numero membri richiesti : <?php echo $gruppo["NumeroMembriRichiesti"];?></p>
-                <?php endif; ?>
-                <p>Numero membri attuali : <?php echo $gruppo["NumeroMembriAttuali"];?></p>
+                <div>
+                    <?php if($gruppo["NumeroMembriRichiesti"]!=0):?>
+                        <p>Numero membri richiesti : <?php echo $gruppo["NumeroMembriRichiesti"];?></p>
+                    <?php endif; ?>
+                    <p>Numero membri attuali : <?php echo $gruppo["NumeroMembriAttuali"];?></p>
+                </div>
                 <table>
                     <tr>
                         <th id="nome">Nome</th>
@@ -108,7 +110,7 @@
                                 </li>
                                 <li>
                                     <label for="descrizione">Descrizione : </label></br>
-                                    <textarea name="descrizione" id="nome"><?php echo $gruppo["Descrizione"];?></textarea>
+                                    <textarea name="descrizione" id="descrizione"><?php echo $gruppo["Descrizione"];?></textarea>
                                 </li>
                             </ul>
                             <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["CodiceGruppo"];?>"/>

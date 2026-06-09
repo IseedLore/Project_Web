@@ -56,41 +56,48 @@
                 <?php require($templateParams["section-modify-meetings"]);?>
             </div>
         <?php endif;?>
-        <aside class="single-group-members">
-            <h3>Membri</h3>
-            <?php if($gruppo["NumeroMembriRichiesti"]!=0):?>
-                <p>Numero membri richiesti : <?php echo $gruppo["NumeroMembriRichiesti"];?></p>
-            <?php endif; ?>
-            <p>Numero membri attuali : <?php echo $gruppo["NumeroMembriAttuali"];?></p>
-            <table>
-                <tr>
-                    <th id="nome">Nome</th>
-                    <th id="cognome">Cognome</th>
-                    <th id="email">Email</th>
-                </tr>
-                <?php $studentiIscritti = $dbh->getStudentiIscrittiGruppo($gruppo["CodiceGruppo"]);?>
-                <?php foreach($studentiIscritti as $studente):?>
+        <aside>
+            <section class="single-group-members">
+                <h3>Membri</h3>
+                <?php if($gruppo["NumeroMembriRichiesti"]!=0):?>
+                    <p>Numero membri richiesti : <?php echo $gruppo["NumeroMembriRichiesti"];?></p>
+                <?php endif; ?>
+                <p>Numero membri attuali : <?php echo $gruppo["NumeroMembriAttuali"];?></p>
+                <table>
                     <tr>
-                        <td headers="nome"><?php echo $studente["Nome"];?></td>
-                        <td headers="cognome"><?php echo $studente["Cognome"];?></td>
-                        <td headers="email"><?php echo $studente["Email"];?></td>
+                        <th id="nome">Nome</th>
+                        <th id="cognome">Cognome</th>
+                        <th id="email">Email</th>
                     </tr>
-                <?php endforeach; ?>
-            </table> 
-            <?php if($gruppo["NumeroMembriRichiesti"]==0 || ($gruppo["NumeroMembriRichiesti"]!=0 && $gruppo["NumeroMembriAttuali"]<$gruppo["NumeroMembriRichiesti"])):?>
-                <form action="visualizzazione-gruppo.php" method="GET">
-                        <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["CodiceGruppo"];?>"/>
-                        <?php if(isUserLoggedIn()):?>
-                            <input type="hidden" name="new-subscription-student-id" id="new-subscription-student-id" value=<?php echo $_SESSION["matricola"];?>/>
-                        <?php endif; ?>
-                        <input type="hidden" name="new-subscription" id="new-subscription"/>
-                        <input type="submit" value="Iscriviti al gruppo"/>
-                </form>
-            <?php else: ?>
-                <p>Non ci sono più posti nel gruppo</p>
-            <?php endif;?>
+                    <?php $studentiIscritti = $dbh->getStudentiIscrittiGruppo($gruppo["CodiceGruppo"]);?>
+                    <?php foreach($studentiIscritti as $studente):?>
+                        <tr>
+                            <td headers="nome"><?php echo $studente["Nome"];?></td>
+                            <td headers="cognome"><?php echo $studente["Cognome"];?></td>
+                            <td headers="email"><?php echo $studente["Email"];?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table> 
+                <?php if($gruppo["NumeroMembriRichiesti"]==0 || ($gruppo["NumeroMembriRichiesti"]!=0 && $gruppo["NumeroMembriAttuali"]<$gruppo["NumeroMembriRichiesti"])):?>
+                    <form action="visualizzazione-gruppo.php" method="GET">
+                            <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["CodiceGruppo"];?>"/>
+                            <?php if(isUserLoggedIn()):?>
+                                <input type="hidden" name="new-subscription-student-id" id="new-subscription-student-id" value=<?php echo $_SESSION["matricola"];?>/>
+                            <?php endif; ?>
+                            <input type="hidden" name="new-subscription" id="new-subscription"/>
+                            <input type="submit" value="Iscriviti al gruppo"/>
+                    </form>
+                <?php else: ?>
+                    <p>Non ci sono più posti nel gruppo</p>
+                <?php endif;?>
+            </section>
             <?php if(isset($templateParams["errore"])):?>
                 <p><?php echo $templateParams["errore"];?></p>
             <?php endif;?>
+            <?php if(isUserLoggedIn() && $_SESSION['matricola']==$templateParams["creatore-gruppo"]["MatricolaCreatore"]): ?>
+                <section class="delete-group-section">
+                    <a class="delete-group" href="visualizzazione-gruppo.php?delete-group=true&single-group=<?php echo $gruppo["CodiceGruppo"];?>">Elimina gruppo</a>
+                </section>
+            <?php endif; ?>
         </aside>
     </main> 

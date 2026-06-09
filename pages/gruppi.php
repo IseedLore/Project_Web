@@ -1,7 +1,7 @@
 <?php 
 require_once '../bootstrap.php';
 
-$templateParams["title"] = "Gruppi Studenti - Gruppi";
+$templateParams["title"] = "StudyConnect - Gruppi";
 $templateParams["page"] = "templates/specific/template-gruppi.php";
 $templateParams["corsi"] = $dbh->getCorsi();
 

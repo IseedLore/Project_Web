@@ -464,5 +464,12 @@
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function deleteGruppo(int $codice){
+            $query = "DELETE FROM Gruppi WHERE Codice=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i', $codice);
+            return $stmt->execute();
+        }
+
     }
 ?>

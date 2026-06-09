@@ -1,7 +1,7 @@
 <?php 
 require_once '../bootstrap.php';
 
-$templateParams["title"] = "Gruppi Studenti - Corsi";
+$templateParams["title"] = "StudyConnect - Corsi";
 $templateParams["page"] = "templates/specific/visualizza-corsi.php";
 
 if(isset($_GET["search-course"])){

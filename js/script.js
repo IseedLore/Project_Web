@@ -62,12 +62,3 @@ if(btnHidePrefList!=null) {
         
     });
 }
-
-
-var newImg = document.getElementById("imgUtente");
-
-if (newImg != null) {
-    newImg.addEventListener("change", function(){
-        this.form.submit();
-    });
-}

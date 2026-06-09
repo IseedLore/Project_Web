@@ -34,7 +34,8 @@
             <?php if(!count($templateParams["prossimiIncontri"]) == 0) {
                 foreach ($templateParams["prossimiIncontri"] as $incontro):  ?>            
                 <div class="card">
-                   <p><?= $incontro["NomeGruppo"];?><?= $incontro["Luogo"];?></p>
+                   <p><?= $incontro["NomeGruppo"];?></p>
+                   <p><?= $incontro["Luogo"];?></p>
                    <p><?= $incontro["Data"]; $incontro["Orario"];?></p>     
                    <p><?= $incontro["Modalità"];?></p>                   
                 </div>
@@ -50,7 +51,7 @@
             <?php if(!count($templateParams["gruppiSuggeriti"]) == 0) { ?>
                 <?php foreach ($templateParams["gruppiSuggeriti"] as $suggerito): ?>
                 <div class="card">
-                    <p><?= $suggerito["Nome"] ?> - <?= $suggerito["Tipo"] ?></p>
+                    <p><?= $suggerito["Nome"] ?> --- <?= $suggerito["Tipo"] ?></p>
                     <p><?= $suggerito["NomeCorso"] ?></p>
                 </div>                    
                 <?php endforeach; ?>
@@ -68,7 +69,12 @@
                 <div class="card">
                     <?php foreach ($templateParams["scadenzeProgetti"] as $progetto): ?>
                         <P>
-                            <?= $progetto["Nome"]?> - <?= $progetto["Data"] ?>
+                            <?php 
+                            echo $progetto["Nome"];
+                            if($progetto["Data"] != "0000-00-00" && $progetto["Data"] != "" ){ 
+                                echo " --- ".$progetto["Data"];
+                            }
+                            ?>
                         </P>
                     <?php endforeach; ?>
                 </div>

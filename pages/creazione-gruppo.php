@@ -21,17 +21,19 @@ if(isset($_POST["create-group"])){
     $corso = $_POST["corso"];
 
     if($_POST["create-group"]=="Crea gruppo studio"){
-        $result1 = $dbh->insertGruppoStudio($nome, $descrizione, $numMembri, $matricola, $corso);
+        $id = $dbh->insertGruppoStudio($nome, $descrizione, $numMembri, $matricola, $corso);
     }
 
     if($_POST["create-group"]=="Crea gruppo progetto"){
         $data = $_POST["data"];
-        $result1 = $dbh->insertGruppoProgetto($nome, $descrizione, $numMembri, $matricola, $corso, $data);
+        $id = $dbh->insertGruppoProgetto($nome, $descrizione, $numMembri, $matricola, $corso, $data);
     }
 
-    $result2 = $dbh->insertIscrizioneNuovoGruppo($matricola);
-
-    if($result1!=FALSE && $result2!=FALSE){
+    if($id!=false){
+        $result2 = $dbh->insertNuovaIscrizioneGruppo($id, $matricola);
+    }
+    
+    if($result2!=false){
         $msg = "Creazione gruppo avvenuta con successo!";
     } else{
         $msg = "Errore nella creazione del gruppo!";

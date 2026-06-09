@@ -3,9 +3,9 @@
             <form action="gruppi.php" method="GET" class="search-bar-form">
                 <span class="material-symbols-outlined">search</span>
                 <?php if(isset($_GET["search-group"])):?>
-                    <input type="text" id="search-group" name="search-group" placeholder=<?php echo $_GET["search-group"];?>>
+                    <input type="text" id="search-group" name="search-group" placeholder=<?php echo $_GET["search-group"];?> />
                 <?php else:?>
-                    <input type="text" id="search-group" name="search-group" placeholder="Cerca gruppo..." >
+                    <input type="text" id="search-group" name="search-group" placeholder="Cerca gruppo..." />
                 <?php endif;?>  
                 <button type="submit">Avvia ricerca</button>
             </form>
@@ -38,8 +38,8 @@
                             <?php endif; ?>
                     <?php endif; ?>
                     <form action="visualizzazione-gruppo.php" method="GET">
-                        <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["Codice"];?>">
-                        <input type="submit" value="Dettagli">
+                        <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["Codice"];?>" />
+                        <input type="submit" value="Dettagli" />
                     </form>
                 </li>
                 <?php endforeach; ?>

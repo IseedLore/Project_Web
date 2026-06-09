@@ -2,7 +2,7 @@
     <div class="profile-top-row">
         <section class="user-data-card">
             <div>
-                <img src="<?php echo UPLOAD_DIR.$templateParams["imgprofilo"]; ?>" alt="Immagine Utente">
+                <img src="<?php echo UPLOAD_DIR.$templateParams["imgprofilo"]; ?>" alt="Immagine Profilo">
             </div>
             <div class="user-data-box">                  
                 <h2><?=$templateParams["nome"]?> <?=$templateParams["cognome"]?></h2>
@@ -37,7 +37,7 @@
                             <?php $prfStudente = array_column($templateParams["tuttePreferenzeStudente"], "Nome");
                             if(in_array($preference["Nome"], $prfStudente)) {
                                 echo 'checked="checked"'; 
-                            }?>/>
+                            }?> />
                         </div>
                         <?php endforeach ?>
                     </div>

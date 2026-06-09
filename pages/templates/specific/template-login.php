@@ -5,12 +5,12 @@
             <form action="login.php" method="POST" class="auth-form">
                 <div class="form-group">
                     <label for="login-email">Email</label>
-                    <input type="text" id="login-email" name="email" required>
+                    <input type="text" id="login-email" name="email" required />
                 </div>
                 
                 <div class="form-group">
                     <label for="login-password">Password</label>
-                    <input type="password" id="login-password" name="password" required>
+                    <input type="password" id="login-password" name="password" required />
                 </div>
                 
                 <button type="submit" class="btn-auth">Accedi</button>
@@ -26,27 +26,27 @@
             <form action="login.php" method="POST" class="auth-form registration-grid">
                 <div class="form-group">
                     <label for="reg-nome">Nome</label>
-                    <input type="text" id="reg-nome" name="nome" required>
+                    <input type="text" id="reg-nome" name="nome" required />
                 </div>
 
                 <div class="form-group">
                     <label for="reg-cognome">Cognome</label>
-                    <input type="text" id="reg-cognome" name="cognome" required>
+                    <input type="text" id="reg-cognome" name="cognome" required />
                 </div>
 
                 <div class="form-group">
                     <label for="reg-matricola">Matricola</label>
-                    <input type="text" id="reg-matricola" name="matricola" min="10" maxlength="10" pattern="\d{10}" title="Inserire 10 cifre numeriche" required>
+                    <input type="text" id="reg-matricola" name="matricola" min="10" maxlength="10" pattern="\d{10}" title="Inserire 10 cifre numeriche" required />
                 </div>
                 
                 <div class="form-group">
                     <label for="reg-password">Password</label>
-                    <input type="password" id="reg-password" name="password" minlength="10" required>
+                    <input type="password" id="reg-password" name="password" minlength="10" required />
                 </div>
                 
                 <div class="form-group">
                     <label for="reg-email">Email</label>
-                    <input type="email" id="reg-email" name="email" required>
+                    <input type="email" id="reg-email" name="email" required />
                 </div>
                 
                 <button type="submit" class="btn-auth">Iscriviti</button>                
@@ -56,7 +56,6 @@
                 </div>
             </form>
         </section>
-
     </div>
 </main>
 

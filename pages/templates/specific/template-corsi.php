@@ -1,14 +1,3 @@
-    <main class="courses-main">
-        <form action="corsi.php" method="GET" class="search-bar-form">
-            <label for="search-course"><img src="<?php echo UPLOAD_DIR.$templateParams["searchicon"]; ?>" alt="Icona ricerca"></label>
-            <?php if(isset($_GET["search-course"])):?>
-                <input type="text" id="search-course" name="search-course" placeholder=<?php echo $_GET["search-course"];?> />
-            <?php else:?>
-                <input type="text" id="search-course" name="search-course" placeholder="Cerca corso..." />
-            <?php endif;?>  
-            <button type="submit">Avvia ricerca</button>
-        </form>
-        <section class="courses-container">
             <ul class="courses-list">
                 <?php foreach($templateParams["corsi"] as $corso):?>
                 <li class="course">
@@ -28,19 +17,22 @@
                     <div class="teachers-list">
                         Docenti :
                         <ul>
-                            <?php $templateParams["docenti"] = $dbh->getDocenti($corso["Codice"]); ?>
+                            <?php $templateParams["docenti"] = $dbh->getDocentiPerCorso($corso["Codice"]); ?>
                             <?php foreach($templateParams["docenti"] as $docente):?>
-                                <li><?php echo $docente["Nome"] . ' ' . $docente["Cognome"]; ?>
+                                <li>
+                                    <?php if($docente["Classe"]!=''){
+                                            echo $docente["Nome"] . ' ' . $docente["Cognome"] . " (classe " . $docente["Classe"] . ")";
+                                    } else{
+                                        echo $docente["Nome"] . ' ' . $docente["Cognome"];
+                                    }?>
+                                </li>
                             <?php endforeach ?>
                         </ul>
                     </div>
-                    <form action="gruppi.php" method="GET">
-                        <input type="hidden" name="filter-course" id="filter-course" value="<?php echo $corso["Nome"];?>" />
-                        <input type="hidden" name="filter-group-type" id="filter-group-type" value="Tutti"/>
-                        <input type="submit" value="Vai ai gruppi" />
-                    </form>
+                    <?php 
+                    if(isset($templateParams["form-courses-type"])) : 
+                        require ($templateParams["form-courses-type"]);
+                    endif; ?>
                 </li>
                 <?php endforeach ?>
             </ul>
-        </section>
-    </main>

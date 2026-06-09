@@ -10,17 +10,17 @@ $azione = getAction($templateParams["azione"]);
         <li>
             <label for="data">Data : </label>
             <?php if($azione!="Inserisci"): ?>
-                <input type="date" id="data" name="data" value="<?php echo $incontro["Data"];?>" min="2025-09-01" max="2027-09-01"/>
+                <input type="date" id="data" name="data" value="<?php echo $incontro["Data"];?>" min="2025-09-01" max="2027-09-01" required/>
             <?php else: ?>
-                <input type="date" id="data" name="data" min="2025-09-01" max="2027-09-01"/>
+                <input type="date" id="data" name="data" min="2025-09-01" max="2027-09-01" required/>
             <?php endif; ?>
         </li>
         <li>
             <label for="orario">Orario : </label>
             <?php if($azione!="Inserisci"): ?>
-                <input type="time" id="orario" name="orario" value="<?php echo $incontro["Orario"];?>" min="08:00:00" max="21:00:00"/>
+                <input type="time" id="orario" name="orario" value="<?php echo $incontro["Orario"];?>" min="08:00:00" max="21:00:00" required/>
             <?php else: ?>
-                <input type="time" id="orario" name="orario" min="08:00:00" max="21:00:00"/>
+                <input type="time" id="orario" name="orario" min="08:00:00" max="21:00:00" required/>
             <?php endif; ?>
         </li>
         <li>

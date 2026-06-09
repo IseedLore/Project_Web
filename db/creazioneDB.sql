@@ -51,7 +51,7 @@ CREATE TABLE Gruppi(
         ON UPDATE NO ACTION,
 	FOREIGN KEY (CodiceCorso) REFERENCES Corsi(Codice)
 		ON DELETE CASCADE
-        ON UPDATE NO ACTION,
+        ON UPDATE CASCADE,
     CHECK(NumeroMembriAttuali<=NumeroMembriRichiesti OR NumeroMembriRichiesti=0)
 );
 
@@ -64,7 +64,7 @@ CREATE TABLE Incontri(
     Note VARCHAR(500) NOT NULL,
     FOREIGN KEY (CodiceGruppo) REFERENCES Gruppi(Codice)
 		ON DELETE CASCADE
-		ON UPDATE NO ACTION,
+		ON UPDATE CASCADE,
     PRIMARY KEY (CodiceGruppo, Data, Orario)
 );
 
@@ -73,7 +73,7 @@ CREATE TABLE Iscrizioni(
     MatricolaStudente VARCHAR(10) NOT NULL,
     FOREIGN KEY (CodiceGruppo) REFERENCES Gruppi(Codice)
 		ON DELETE CASCADE
-        ON UPDATE NO ACTION,
+        ON UPDATE CASCADE,
 	FOREIGN KEY (MatricolaStudente) REFERENCES Studenti(Matricola)
 		ON DELETE CASCADE
         ON UPDATE NO ACTION,
@@ -85,7 +85,7 @@ CREATE TABLE Preferenze(
     MatricolaStudente VARCHAR(10) NOT NULL,
     FOREIGN KEY (CodiceCorso) REFERENCES Corsi(Codice)
 		ON DELETE CASCADE
-        ON UPDATE NO ACTION,
+        ON UPDATE CASCADE,
 	FOREIGN KEY (MatricolaStudente) REFERENCES Studenti(Matricola)
 		ON DELETE CASCADE
         ON UPDATE NO ACTION,
@@ -101,7 +101,7 @@ CREATE TABLE Insegnamenti(
         ON UPDATE NO ACTION,
     FOREIGN KEY (CodiceCorso) REFERENCES Corsi(Codice)
 		ON DELETE CASCADE
-        ON UPDATE NO ACTION,
+        ON UPDATE CASCADE,
 	PRIMARY KEY (CodiceDocente, CodiceCorso)
 );
 

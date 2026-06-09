@@ -1,7 +1,7 @@
 <?php 
 require_once '../bootstrap.php';
 
-$templateParams["title"] = "Gruppi Studenti - Visualizzazione gruppo";
+$templateParams["title"] = "StudyConnect - Visualizzazione gruppo";
 $templateParams["page"] = "templates/specific/singolo-gruppo.php";
 
 if(isset($_GET["new-subscription"]) && isset($_GET["single-group"])){
@@ -38,6 +38,7 @@ if(isset($_GET["action"])){
 } else{
     $templateParams["section-modify-meetings"] = 'templates/specific/modifica-incontri.php'; 
 }
+
 
 /* Gestione modifica di un incontro */
 if(isset($_POST["action"])){
@@ -78,6 +79,15 @@ if(isset($_POST["action"])){
         $vecchiaData = $_POST["olddata"];
         $vecchioOrario = $_POST["oldtime"];
         $dbh->deleteIncontro($gruppoIncontro, $vecchiaData, $vecchioOrario);
+    }
+}
+
+if(isset($_GET["delete-group"]) && $_GET["delete-group"]=="true"){
+    $result = $dbh->deleteGruppo($_GET["single-group"]);
+    if(!$result){
+        $templateParams["errore"] = "C'è stato un errore e non è stato cancellato il gruppo.";
+    } else{
+        header("Location: gruppi.php");
     }
 }
 

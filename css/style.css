@@ -286,10 +286,13 @@ footer {
     border-color: #1F272B;
     border-radius: 5px;
     text-decoration: none;
+    padding: 3px;
+    font-size: small;
     float: right;
 }
 
 .course input:hover{
+    cursor: pointer;
     background-color: #84f7cb;
 }
 
@@ -488,6 +491,11 @@ footer {
     margin : 5px;
 }
 
+.delete-group-section{
+    order: 5;
+    margin : 5px;
+}
+
 .single-group-main h2, .single-group-main h3{
     color: #FF9800;
     margin-bottom: 8px;
@@ -528,12 +536,13 @@ footer {
     border-radius: 3px;
     color: #1F272B;
     font-weight: bold;
+    text-decoration: none;
     padding: 4px;
     margin: 30px 35%;
     width: 30%;
 }
 
-.single-group-next-meetings a{
+.single-group-next-meetings a, .delete-group{
     background-color: #2596BB;
     border-style: solid;
     border-color: #2596BB;
@@ -546,12 +555,21 @@ footer {
     text-decoration: none;
 }
 
-.single-group-members form input:hover, .single-group-next-meetings a:hover, .creation-group aside a:hover{
+.delete-group{
+    width : 20%;
+    margin : 10px 38%;
+}
+
+.delete-group-section{
+    margin-bottom: 30px;
+}
+
+.single-group-members form input:hover, .delete-group:hover, .single-group-next-meetings a:hover, .creation-group aside a:hover, .admin-main aside > a:hover{
     color: #FCEEC5;
     cursor: pointer;
 }
 
-.single-group-members p:nth-last-child(1), .message-error, .message-result{
+.single-group-main aside > p:nth-last-child(1), .message-error, .message-result, .msg-error{
     color: red;
     font-weight: bold;
     text-align: center;
@@ -564,7 +582,7 @@ footer {
     width: 50%;
 }
 
-.modify-meetings, .creation-group form{
+.modify-meetings, .creation-group form, .manage-course{
     background-color: #BCF1F1;
     border-color: #2596BB;
     border-radius: 3px;
@@ -588,7 +606,7 @@ footer {
     cursor: pointer;
 }
 
-.modify-meetings .insert-button, .modify-meetings form ul li:nth-last-child(1) input, .modify-meetings form ul li:nth-last-child(1) a, .creation-group form > input:nth-last-child(1){
+.modify-meetings .insert-button, .modify-meetings form ul li:nth-last-child(1) input, .modify-meetings form ul li:nth-last-child(1) a, .creation-group form > input:nth-last-child(1), .admin-main section form ul li:last-child input, .admin-main section form a, .admin-insert-btn {
     background-color: white;
     border-style: solid;
     border-color: #2596BB;
@@ -605,21 +623,21 @@ footer {
     float: right;
 }
 
-.modify-meetings .insert-button:hover, .modify-meetings form ul li:nth-last-child(1) input:hover, .modify-meetings form ul li:nth-last-child(1) a:hover, .creation-group form > input:nth-last-child(1):hover{
+.modify-meetings .insert-button:hover, .modify-meetings form ul li:nth-last-child(1) input:hover, .modify-meetings form ul li:nth-last-child(1) a:hover, .creation-group form > input:nth-last-child(1):hover, .admin-main section form > input:hover{
     cursor: pointer;
     background-color: #4fc598;
 }
 
-.modify-meetings h4, .creation-group h2{
+.modify-meetings h4, .creation-group h3, .admin-main form h2{
     color: #056342;
 }
 
-.modify-meetings form ul, .creation-group form ul{
+.modify-meetings form ul, .creation-group form ul, .manage-course ul{
     list-style: none;
     margin : 3px;
 }
 
-.modify-meetings form ul li, .creation-group section form ul li{
+.modify-meetings form ul li, .creation-group section form ul li, .manage-course ul li{
     margin: 5px;
     padding: 2px;
 }
@@ -628,13 +646,13 @@ footer {
 /*
 ***************** CREA GRUPPI *********************
 */
-.creation-group{
+.creation-group, .admin-main{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.creation-group aside{
+.creation-group aside, .admin-main aside{
     order: 1;
     display: inline;
     margin: 40px;
@@ -660,12 +678,82 @@ footer {
     margin: 5px 10px;
 }
 
-.creation-group section{
+.creation-group section, .admin-main section{
     order: 2;
 }
 
 textarea{
     margin-left: 15px;
+}
+
+/*
+***************** ADMIN *********************
+*/
+.admin-main aside h2{
+    font-size: large;
+    color: #FF9800;
+    margin-bottom: 20px;
+}
+
+.admin-main aside{
+    background-color: white;
+    justify-content: center;
+    padding: 40px;
+}
+
+.admin-main aside a{
+    background-color: #FF9800;
+    border-style: solid;
+    border-color: #FF9800;
+    border-radius: 3px;
+    color: #1F272B;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 4px;
+    width: 20%;
+    margin: 5px 10px;
+}
+
+.course-preview input{
+    font-size: medium;
+    font-weight: normal;
+    float: right;
+    margin: 7px;
+    padding: 3px;
+}
+
+.manage-course ul li:last-child input, .manage-course ul li:last-child a{
+    float: right;
+}
+
+.manage-course{
+    padding: 35px;
+}
+
+.admin-insert-btn{
+    float: center;
+}
+
+.admin-main aside form ul{
+    list-style: none;
+}
+
+.admin-main aside form ul li{
+    margin: 5px;
+    padding: 3px;
+}
+
+.admin-main aside form > input{
+    background-color: #1F272B;
+    color: white;
+    border-style: solid;
+    border-color: #1F272B;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.admin-main aside form > input:hover{
+    cursor: pointer;
 }
 
 
@@ -1156,7 +1244,7 @@ textarea{
         display: none;
     }
 
-    .single-group-main, .creation-group{
+    .single-group-main, .creation-group, .admin-main{
         display : block;
     }
 
@@ -1165,7 +1253,7 @@ textarea{
         float: left;
     }
 
-    .single-group-members{
+    .single-group-main aside{
         width: 30%;
         position: absolute;
         top: 100px;
@@ -1177,19 +1265,44 @@ textarea{
         float: left;
     }
 
-    .creation-group section{
+    .delete-group-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .delete-group{
+        text-align: center;
+    }
+
+    .creation-group section, .admin-main section{
         width: 60%;
         float: left;
     }
 
     .creation-group aside{
-        width: 30%;
-        float: right;
         background-color: white;
         border-color: #FF9800;
         border-radius: 3px;
-        border-style: solid;
-        padding: 60px;
+        border-style: solid;   
+    }
+
+    .creation-group aside, .admin-main aside{
+        width: 30%;
+        float: right;
+        padding: 20px;
+    }
+
+    .admin-main section .courses-list{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 96%;
+        margin: 0 2%;
+        list-style: none;
+    }
+
+    .admin-main section{
+        margin: 15px;
     }
 
     /*

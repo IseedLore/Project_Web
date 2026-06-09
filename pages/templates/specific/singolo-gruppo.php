@@ -105,8 +105,8 @@
                         <form action="visualizzazione-gruppo.php" method="GET" >
                             <ul>
                                 <li>
-                                    <label for="nome" autocomplete="on">Nome : </label>
-                                    <input type="text" name="nome" id="nome" value="<?php echo $gruppo["NomeGruppo"];?>"/>
+                                    <label for="nome">Nome : </label>
+                                    <input type="text" name="nome" id="nome" value="<?php echo $gruppo["NomeGruppo"];?>" autocomplete="off" />
                                 </li>
                                 <li>
                                     <label for="descrizione">Descrizione : </label></br>

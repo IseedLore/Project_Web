@@ -471,5 +471,12 @@
             return $stmt->execute();
         }
 
+        public function updateGruppoNomeDescr(int $codice, string $nome, string $descrizione){
+            $query = "UPDATE Gruppi SET Nome=?, Descrizione=? WHERE Codice=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssi', $nome, $descrizione, $codice);
+            return $stmt->execute();
+        }
+
     }
 ?>

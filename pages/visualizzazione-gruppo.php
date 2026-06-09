@@ -91,5 +91,23 @@ if(isset($_GET["delete-group"]) && $_GET["delete-group"]=="true"){
     }
 }
 
+if(isset($_GET["update-visible"]) && $_GET["update-visible"]=="true"){
+    $templateParams["update-form-visible"] = "true";
+}
+
+if(isset($_GET["modifica-gruppo"])){
+    $gruppo = $_GET["single-group"];
+    $nome = $_GET["nome"];
+    $descrizione = $_GET["descrizione"];
+
+    $result = $dbh->updateGruppoNomeDescr($gruppo, $nome, $descrizione);
+    if(!$result){
+        $templateParams["errore"] = "C'è stato un errore nella modifica";
+    } else{
+        $templateParams["gruppo-singolo"] =  $dbh->getGruppoPerCodice(intval($_GET["single-group"]))[0];
+        $templateParams["creatore-gruppo"] = $dbh->getCreatoreGruppo(intval($_GET["single-group"]))[0];
+    }
+}
+
 require "templates/general/base.php";
 ?>

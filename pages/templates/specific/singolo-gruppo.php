@@ -98,6 +98,26 @@
                 <section class="delete-group-section">
                     <a class="delete-group" href="visualizzazione-gruppo.php?delete-group=true&single-group=<?php echo $gruppo["CodiceGruppo"];?>">Elimina gruppo</a>
                 </section>
+                <section class="update-group-section">
+                    <?php if(isset($templateParams["update-form-visible"]) && $templateParams["update-form-visible"]==true) :?>
+                        <form action="visualizzazione-gruppo.php" method="GET" >
+                            <ul>
+                                <li>
+                                    <label for="nome">Nome : </label>
+                                    <input type="text" name="nome" id="nome" value="<?php echo $gruppo["NomeGruppo"];?>"/>
+                                </li>
+                                <li>
+                                    <label for="descrizione">Descrizione : </label>
+                                    <textarea name="descrizione" id="nome"><?php echo $gruppo["Descrizione"];?></textarea>
+                                </li>
+                            </ul>
+                            <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["CodiceGruppo"];?>"/>
+                            <input type="submit" name="modifica-gruppo" id="modifica-gruppo" value="Modifica gruppo"/>
+                        </form>
+                    <?php else: ?>
+                        <a href="visualizzazione-gruppo.php?update-visible=true&single-group=<?php echo $gruppo["CodiceGruppo"];?>">Modifica gruppo</a>
+                    <?php endif; ?>
+                </section>
             <?php endif; ?>
         </aside>
     </main> 

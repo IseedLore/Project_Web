@@ -168,6 +168,11 @@ footer {
     width: 100%;
 }
 
+.home-container h2 {
+    color: #834e00;
+}
+
+
 .card-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -187,7 +192,7 @@ footer {
 }
 
 .card {
-    border: 2px solid #FF9800; /*oppure #EE964B?*/
+    border: 2px solid #1F272B;
     padding: 15px;
     background: white;
     min-height: 6rem;
@@ -210,6 +215,10 @@ footer {
 
 .sidebar-destra-home-loggato > * {
     flex: 1;
+}
+
+.sidebar-destra-home-loggato h2 {
+    margin-bottom: 15px;
 }
 
 .sidebar-destra-home-loggato:first-child {
@@ -730,8 +739,8 @@ textarea{
     padding: 35px;
 }
 
-.admin-insert-btn{
-    float: center;
+.admin-main form > *{
+    width: 100%;
 }
 
 .admin-main aside form ul{
@@ -851,6 +860,10 @@ textarea{
     gap: 30px;
 }
 
+.profile-container h2 {
+    color: #834e00;
+}
+
 .profile-top-row {
     display: grid;
     grid-template-columns: 1fr; 
@@ -863,11 +876,6 @@ textarea{
     background-color: white;
     border: 2px solid black;
 }
-
-.user-data-box h2, .user-preferences-card h3, .groups-box h3{
-    color: #834e00;    
-}
-
 
 .user-data-card {
     display: flex;

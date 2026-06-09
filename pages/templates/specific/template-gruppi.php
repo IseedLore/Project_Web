@@ -1,7 +1,7 @@
     <main class="groups-main">
         <div class="top-bar">
             <form action="gruppi.php" method="GET" class="search-bar-form">
-                <img src="<?php echo UPLOAD_DIR.$templateParams["searchicon"]; ?>" alt="Icona ricerca">
+                <label for="search-group"><img src="<?php echo UPLOAD_DIR.$templateParams["searchicon"]; ?>" alt="Icona ricerca"></label>
                 <?php if(isset($_GET["search-group"])):?>
                     <input type="text" id="search-group" name="search-group" placeholder=<?php echo $_GET["search-group"];?> />
                 <?php else:?>

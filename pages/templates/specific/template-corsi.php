@@ -1,6 +1,6 @@
     <main class="courses-main">
         <form action="corsi.php" method="GET" class="search-bar-form">
-            <img src="<?php echo UPLOAD_DIR.$templateParams["searchicon"]; ?>" alt="Icona ricerca">
+            <label for="search-course"><img src="<?php echo UPLOAD_DIR.$templateParams["searchicon"]; ?>" alt="Icona ricerca"></label>
             <?php if(isset($_GET["search-course"])):?>
                 <input type="text" id="search-course" name="search-course" placeholder=<?php echo $_GET["search-course"];?> />
             <?php else:?>

@@ -104,12 +104,6 @@ header {
     object-fit: cover;
 }
 
-.btn-box-header-img {
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-}
-
 .dropdown{
     display: inline-block;
     cursor: pointer;
@@ -148,7 +142,7 @@ footer {
     text-align: center;
     align-content: center;
     padding: 1rem;
-    background-color: #c97800; /*oppure #EE964B?*/
+    background-color: #ffb74c; /*oppure #EE964B?*/
     padding-bottom: 6rem;
 }
 
@@ -358,29 +352,30 @@ footer {
 .course{
     line-height: 1.5;
     border-style: solid;
-    border-color: #2596BB;
+    border-color: #1F272B;
     border-radius: 10px;
-    background-color: #BCF1F1;
+    background-color: white;
     padding: 10px;
     margin: 8px;
 }
 
 .course h2{
-    color: #2596BB;
+    color: #834e00;
     margin-bottom: 8px;
 }
 
 .course input{
-    background-color: #2596BB;
+    background-color: #4fc598;
+    padding: 5px;
     border-style: solid;
-    border-color: #2596BB;
+    border-color: #1F272B;
     border-radius: 5px;
     text-decoration: none;
     float: right;
 }
 
 .course input:hover{
-    color: #FCEEC5;
+    background-color: #84f7cb;
 }
 
 .teachers-list ul{
@@ -422,6 +417,7 @@ footer {
 
 .search-bar-form img{
     margin-left: 10px;
+    max-height: 100%;
 }
 
 
@@ -450,24 +446,31 @@ footer {
     border-radius: 10px;
     padding: 10px;
     margin: 8px;
+    background-color: white;
 }
 
 .group h2{
-    color: #FF9800;
+    color: #834e00;
     margin-bottom: 8px;
 }
 
+.group form {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .group form input{
-    background-color: #FF9800;
+    background-color: #4fc598;
     border-style: solid;
-    border-color: #FF9800;
+    border-color: #1F272B;
     border-radius: 5px;
     text-decoration: none;
-    float: right;
+    padding: 5px;
 }
 
 .group input:hover{
-    color: #FCEEC5;
+    background-color: #84f7cb;
 }
 
 .groups-aside{
@@ -672,7 +675,7 @@ footer {
 }
 
 .modify-meetings .insert-button, .modify-meetings form ul li:nth-last-child(1) input, .modify-meetings form ul li:nth-last-child(1) a, .creation-group form > input:nth-last-child(1){
-    background-color: #2596BB;
+    background-color: white;
     border-style: solid;
     border-color: #2596BB;
     border-radius: 3px;
@@ -690,11 +693,11 @@ footer {
 
 .modify-meetings .insert-button:hover, .modify-meetings form ul li:nth-last-child(1) input:hover, .modify-meetings form ul li:nth-last-child(1) a:hover, .creation-group form > input:nth-last-child(1):hover{
     cursor: pointer;
-    color: #BCF1F1;
+    background-color: #4fc598;
 }
 
-.modify-meetings h4, .creation-group h3{
-    color: #2596BB;
+.modify-meetings h4, .creation-group h2{
+    color: #056342;
 }
 
 .modify-meetings form ul, .creation-group form ul{
@@ -726,7 +729,7 @@ footer {
 
 .creation-group aside h2{
     font-size: large;
-    color: #FF9800;
+    color: #834e00;
     margin-bottom: 20px;
 }
 
@@ -802,6 +805,7 @@ textarea{
         padding: 20px;
         border-style: solid;
         border-color: #FF9800;
+        background-color: #ffdeac;
         border-radius: 3px;
     }
 
@@ -992,6 +996,16 @@ textarea{
     align-content: center;
 }
 
+.user-data-box, .user-preferences-card, .groups-box {
+    background-color: white;
+    border: 2px solid black;
+}
+
+.user-data-box h2, .user-preferences-card h3, .groups-box h3{
+    color: #834e00;    
+}
+
+
 .user-data-card {
     display: flex;
     align-items: center;
@@ -1009,8 +1023,6 @@ textarea{
 }
 
 .user-data-box {
-    border: 2px solid black;
-    background-color: #BCF1F1;
     padding: 15px 25px;
     min-width: 250px;
     align-items: center;
@@ -1033,6 +1045,7 @@ textarea{
 .box-modifca-img * {
     background-color: #4fc598;    
 }
+
 .box-modifca-img label {
     cursor: pointer;
     padding: 3px;
@@ -1044,8 +1057,6 @@ textarea{
 
 .user-preferences-card {
     position: relative; 
-    border: 2px solid black;
-    background-color: #BCF1F1;
     padding: 20px;
     min-height: 160px;
 }
@@ -1075,7 +1086,7 @@ textarea{
     position: absolute;
     bottom: 12px;
     right: 15px;
-    background: white;
+    background: #4fc598;
     border: 2px solid black;
     padding: 4px 10px;
     font-size: 0.8rem;
@@ -1086,11 +1097,11 @@ textarea{
 }
 
 .btn-see-all:hover{
-    background-color: #4fc598;
+    background-color: #84f7cb;
 }
 
 .box-modifca-img > label:hover {
-    background-color: aqua;
+    background-color: #84f7cb;
 }
 
 .preferences-overlay-panel {
@@ -1171,8 +1182,6 @@ textarea{
 
 .groups-box {
     position: relative;
-    border: 2px solid black;
-    background-color: #BCF1F1;
     padding: 20px;
     padding-bottom: 50px; 
     min-height: 200px;

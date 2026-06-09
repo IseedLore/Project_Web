@@ -21,9 +21,7 @@ $templateParams["imgprofilo"] = $img;
             <li><a href="creazione-gruppo.php">Crea</a></li>
             <?php if (isUserLoggedIn()): ?>
                 <li class="dropdown top-right">
-                    <button type="button" class="btn-box-header-img">
-                        <img src="<?php echo UPLOAD_DIR.$templateParams["imgprofilo"]; ?>" alt="Immagine Profilo" class="nav-profile-img ">
-                    </button>
+                    <img src="<?php echo UPLOAD_DIR.$templateParams["imgprofilo"];?>" tabindex="0" alt="Immagine Profilo" class="nav-profile-img ">
                     <div class="dropdown-content">
                         <a href="profilo.php">Profilo</a>
                         <a href="logout.php">Logout</a>

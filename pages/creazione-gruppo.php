@@ -19,6 +19,12 @@ if(isset($_POST["create-group"])){
     $numMembri = $_POST["num"];
     $matricola = $_SESSION["matricola"];
     $corso = $_POST["corso"];
+    $id = false;
+    $result2 = false;
+
+    if(!($numMembri > 0)) {
+        $numMembri = 0;
+    }
 
     if($_POST["create-group"]=="Crea gruppo studio"){
         $id = $dbh->insertGruppoStudio($nome, $descrizione, $numMembri, $matricola, $corso);

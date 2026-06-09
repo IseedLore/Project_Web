@@ -2,14 +2,14 @@
     <div class="profile-top-row">
         <section class="user-data-card">
             <div>
-                <img src="<?php echo UPLOAD_DIR.$templateParams["imgprofilo"]; ?>" alt="Immagine Utente">
+                <img src="<?php echo UPLOAD_DIR.$templateParams["imgprofilo"]; ?>" alt="Immagine Profilo">
             </div>
             <div class="user-data-box">                  
                 <h2><?=$templateParams["nome"]?> <?=$templateParams["cognome"]?></h2>
                 <p><?=$templateParams["email"]?></p>
                                
                 <form action="modifica-immagine.php"  class="box-modifca-img" method="POST" enctype="multipart/form-data">
-                    <label for="imgUtente">Modifica Immagine</label>
+                    <label for="imgUtente" tabindex="0">Modifica Immagine</label>
                     <input type="file" name="imgUtente" id="imgUtente" />
                 </form>
             </div>
@@ -33,11 +33,11 @@
                         <?php foreach($templateParams["tuttePreferenze"] as $preference): ?>
                         <div class="pref-check-row">
                             <label for="<?= $preference["Codice"]?>"><?= $preference["Nome"]?> </label>
-                            <input type="checkbox" id="pref_<?=$preference["Codice"]?>" name="pref_<?=$preference["Codice"];?>" value="<?=$preference["Nome"]?>"
+                            <input type="checkbox" id="<?=$preference["Codice"]?>" name="pref_<?=$preference["Codice"];?>" value="<?=$preference["Nome"]?>"
                             <?php $prfStudente = array_column($templateParams["tuttePreferenzeStudente"], "Nome");
                             if(in_array($preference["Nome"], $prfStudente)) {
                                 echo 'checked="checked"'; 
-                            }?>/>
+                            }?> />
                         </div>
                         <?php endforeach ?>
                     </div>

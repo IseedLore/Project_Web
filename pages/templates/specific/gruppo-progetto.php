@@ -1,9 +1,9 @@
             <form action="creazione-gruppo.php" method="POST" enctype="multipart/form-data">
-                <h3>Creazione gruppo progetto</h3>
+                <h2>Creazione gruppo progetto</h2>
                 <ul>
                     <li>
                         <label for="nome">Nome : </label>
-                        <input type="text" name="nome" id="nome"/>
+                        <input type="text" name="nome" id="nome" required />
                     </li>
                     <li>
                         <label for="desc">Descrizione : </br></label>

@@ -1,17 +1,17 @@
             <form action="creazione-gruppo.php" method="POST" enctype="multipart/form-data">
-                <h3>Creazione gruppo studio</h3>
+                <h2>Creazione gruppo studio</h2>
                 <ul>
                     <li>
                         <label for="nome">Nome : </label>
-                        <input type="text" name="nome" id="nome"/>
+                        <input type="text" name="nome" id="nome" required />
                     </li>
                     <li>
                         <label for="desc">Descrizione : </br></label>
                         <textarea name="desc" id="desc"></textarea>
                     </li>
                     <li>
-                        <label for="num">Numero membri richiesti : </label>
-                        <input type="number" name="num" id="num" min="0"/>
+                        <label for="num">Numero membri richiesti: </label>
+                        <input type="number" name="num" id="num" min="0" />
                     </li>
                     <li>
                         <label for="corso">Corso : </label>

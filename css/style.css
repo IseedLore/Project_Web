@@ -104,6 +104,12 @@ header {
     object-fit: cover;
 }
 
+.btn-box-header-img {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+}
+
 .dropdown{
     display: inline-block;
     cursor: pointer;
@@ -130,7 +136,7 @@ header {
     padding: 0.8rem 1rem !important;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content  {
     display: block;
 }
 

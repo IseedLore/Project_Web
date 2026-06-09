@@ -5,7 +5,7 @@
                 <legend>Ricerca Rapida</legend>
                 <div class="form-controll">
                     <label for="visualizza">Visualizza</label>
-                    <select name="visualizza" id="visualizza">
+                    <select name="visualizza" id="visualizza" autocomplete="off">
                     <option value="miei">I Miei gruppi</option>
                     <option value="tutti">Tutti i gruppi</option>
                     <option value="corsi">Corsi</option>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-controll" id="container-corsi">
                     <label for="corsi">Corsi</label>
-                    <select name="corsi" id="corsi">
+                    <select name="corsi" id="corsi" autocomplete="off">
                     <option value="tutti">Tutti</option>
                     <?php foreach($templateParams["corsi"] as $corso):?>                        
                         <option value="<?=  $corso["Nome"]; ?>"><?=  $corso["Nome"]; ?></option>
@@ -21,8 +21,8 @@
                     </select>
                 </div>
                 <div class="form-controll checkbox" id="container-checkbox">
-                    <label for="tipo">Progetto?</label>
                     <input type="checkbox" name="tipo" id="tipo" />                    
+                    <label for="tipo">Progetto?</label>
                 </div>
                 <button type="submit">Vai</button>
             </fieldset>

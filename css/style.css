@@ -511,7 +511,7 @@ footer {
 }
 
 .single-group-main h2, .single-group-main h3{
-    color: #FF9800;
+    color: #834e00;
     margin-bottom: 8px;
 }
 
@@ -705,7 +705,7 @@ textarea{
 */
 .admin-main aside h2{
     font-size: large;
-    color: #FF9800;
+    color: #834e00;
     margin-bottom: 20px;
 }
 
@@ -1332,7 +1332,7 @@ textarea{
     }
 
     .login-section:first-child{
-        height: 110%;
+        height: 100%;
         border-bottom: 0;
         border-right: 2px solid black;
     }

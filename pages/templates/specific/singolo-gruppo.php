@@ -107,7 +107,7 @@
                                     <input type="text" name="nome" id="nome" value="<?php echo $gruppo["NomeGruppo"];?>"/>
                                 </li>
                                 <li>
-                                    <label for="descrizione">Descrizione : </label>
+                                    <label for="descrizione">Descrizione : </label></br>
                                     <textarea name="descrizione" id="nome"><?php echo $gruppo["Descrizione"];?></textarea>
                                 </li>
                             </ul>

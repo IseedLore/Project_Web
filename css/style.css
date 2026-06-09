@@ -505,6 +505,11 @@ footer {
     margin : 5px;
 }
 
+.update-group-section{
+    order: 6;
+    margin : 5px;
+}
+
 .single-group-main h2, .single-group-main h3{
     color: #FF9800;
     margin-bottom: 8px;
@@ -551,7 +556,7 @@ footer {
     width: 30%;
 }
 
-.single-group-next-meetings a, .delete-group{
+.single-group-next-meetings a, .delete-group, .update-group-section a{
     background-color: #2596BB;
     border-style: solid;
     border-color: #2596BB;
@@ -564,7 +569,7 @@ footer {
     text-decoration: none;
 }
 
-.delete-group{
+.delete-group, .update-group-section a{
     width : 20%;
     margin : 10px 38%;
 }
@@ -573,7 +578,7 @@ footer {
     margin-bottom: 30px;
 }
 
-.single-group-members form input:hover, .delete-group:hover, .single-group-next-meetings a:hover, .creation-group aside a:hover, .admin-main aside > a:hover{
+.single-group-members form input:hover, .delete-group:hover, .update-group-section a:hover, .single-group-next-meetings a:hover, .creation-group aside a:hover, .admin-main aside > a:hover{
     color: #FCEEC5;
     cursor: pointer;
 }
@@ -591,7 +596,7 @@ footer {
     width: 50%;
 }
 
-.modify-meetings, .creation-group form, .manage-course{
+.modify-meetings, .creation-group form, .manage-course, .update-group-section form{
     background-color: #BCF1F1;
     border-color: #2596BB;
     border-radius: 3px;
@@ -607,7 +612,7 @@ footer {
 }
 
 .modify-meetings table a{
-    color:#2596BB;
+    color:#1F272B;
     text-decoration: underline;
 }
 
@@ -615,7 +620,7 @@ footer {
     cursor: pointer;
 }
 
-.modify-meetings .insert-button, .modify-meetings form ul li:nth-last-child(1) input, .modify-meetings form ul li:nth-last-child(1) a, .creation-group form > input:nth-last-child(1), .admin-main section form ul li:last-child input, .admin-main section form a, .admin-insert-btn {
+.modify-meetings .insert-button, .modify-meetings form ul li:nth-last-child(1) input, .modify-meetings form ul li:nth-last-child(1) a, .update-group-section form > input, .creation-group form > input:nth-last-child(1), .admin-main section form ul li:last-child input, .admin-main section form a, .admin-insert-btn {
     background-color: white;
     border-style: solid;
     border-color: #2596BB;
@@ -628,25 +633,25 @@ footer {
     font-size: 0.875rem;
 }
 
-.modify-meetings .insert-button, .creation-group form > input:nth-last-child(1){
+.modify-meetings .insert-button, .creation-group form > input:nth-last-child(1), .update-group-section form > input{
     float: right;
 }
 
-.modify-meetings .insert-button:hover, .modify-meetings form ul li:nth-last-child(1) input:hover, .modify-meetings form ul li:nth-last-child(1) a:hover, .creation-group form > input:nth-last-child(1):hover, .admin-main section form > input:hover{
+.modify-meetings .insert-button:hover, .modify-meetings form ul li:nth-last-child(1) input:hover, .modify-meetings form ul li:nth-last-child(1) a:hover, .update-group-section form > input:hover, .creation-group form > input:nth-last-child(1):hover, .admin-main section form > input:hover{
     cursor: pointer;
     background-color: #4fc598;
 }
 
-.modify-meetings h4, .creation-group h3, .admin-main form h2{
+.modify-meetings h4, .creation-group h3, .admin-main form h2 {
     color: #056342;
 }
 
-.modify-meetings form ul, .creation-group form ul, .manage-course ul{
+.modify-meetings form ul, .creation-group form ul, .manage-course ul, .update-group-section ul{
     list-style: none;
     margin : 3px;
 }
 
-.modify-meetings form ul li, .creation-group section form ul li, .manage-course ul li{
+.modify-meetings form ul li, .creation-group section form ul li, .manage-course ul li, .update-group-section ul li{
     margin: 5px;
     padding: 2px;
 }
@@ -1277,6 +1282,11 @@ textarea{
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+    
+    .update-group-section a{
+        width: 20%;
+        margin: 10px 32%;
     }
 
     .delete-group{

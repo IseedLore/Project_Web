@@ -394,13 +394,14 @@ footer {
     border-style: solid;
     border-color: #FF9800;
     border-radius: 15px;
+    background-color: white;
 }
 
 .search-bar-form input{
-    background-color: #FCEEC5;
+    background-color: white;
     border: none;
     outline: none;
-    width: 70%;
+    width: 60%;
 }
 
 .search-bar-form button{
@@ -411,6 +412,10 @@ footer {
     border-color: #FF9800;
     cursor: pointer;
     padding: 0 5px;
+}
+
+.search-bar-form img{
+    margin-left: 10px;
 }
 
 

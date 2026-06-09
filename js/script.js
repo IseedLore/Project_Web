@@ -27,10 +27,12 @@ if(selectVisualizza != null){
 var filtersButton = document.getElementById("filters-button");
 
 if(filtersButton!=null){
-    filtersButton.addEventListener("click", function(){
-        groupsAside = document.getElementById("groups-aside");
+    filtersButton.addEventListener("click", (event)=>{
+        const groupsAside = document.getElementById("groups-aside");
+        groupsAsideStyle = window.getComputedStyle(groupsAside, null);
+        console.log(groupsAsideStyle.display);
 
-        if(groupsAside.style.display=="none"){
+        if(groupsAsideStyle.display=="none"){
             groupsAside.style.display = "block";
         } else{
             groupsAside.style.display = "none";

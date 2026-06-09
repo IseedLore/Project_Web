@@ -45,18 +45,22 @@
     </section>
     <aside class="sidebar-destra-home-loggato">
         <div class="sidebar-suggeriti">
-            <?php if(!count($templateParams["gruppiSuggeriti"]) == 0) { ?>
             <h2>Suggeriti per te</h2>
             <div class="vertical-list">
+            <?php if(!count($templateParams["gruppiSuggeriti"]) == 0) { ?>
                 <?php foreach ($templateParams["gruppiSuggeriti"] as $suggerito): ?>
                 <div class="card">
                     <p><?= $suggerito["Nome"] ?> - <?= $suggerito["Tipo"] ?></p>
                     <p><?= $suggerito["NomeCorso"] ?></p>
                 </div>                    
                 <?php endforeach; ?>
+            <?php } else { ?>
+                <div class="card">
+                    <p>Non ci sono nuovi gruppi che combaciano con le tue preferenze</p>
+                </div>
+            <?php } ?>
             </div>
         </div>
-        <?php } ?>
         <?php if(!count($templateParams["scadenzeProgetti"]) == 0) { ?>
         <div>
             <h2>Scadenze Progetti</h2>

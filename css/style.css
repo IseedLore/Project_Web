@@ -1131,6 +1131,10 @@ textarea{
     padding-right: 5px;
 }
 
+.pref-check-row > input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
 .panel-arrows {
     text-align: center;
     font-size: 1.2rem;

@@ -288,15 +288,22 @@
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function getPreferencePerMatricolaLimit(string $matricola, int $limit){
+        public function getPreferencePerMatricola(string $matricola, int $limit = -1){
             $query = "SELECT c.Nome
                         FROM Preferenze p
                         JOIN Corsi c ON p.CodiceCorso = c.Codice
                         WHERE p.MatricolaStudente = ?
-                        ORDER BY c.Nome ASC
-                        LIMIT ?";
+                        ORDER BY c.Nome ASC";
+            
+            if($limit > 0){
+                $query .= " LIMIT ?";
+            }
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('si', $matricola, $limit);
+            if( $limit > 0){
+                $stmt->bind_param('si', $matricola, $limit);
+            } else {
+                $stmt->bind_param('s', $matricola);
+            }
             $stmt->execute();
             return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         }
@@ -347,6 +354,19 @@
             $stmt->execute();
             return $stmt->insert_id;
         }
+
+        public function deletePreferenze(string $matricola){
+            $query = "DELETE FROM Preferenze WHERE MatricolaStudente = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $matricola);
+            return $stmt->execute();
+        }
+
+        public function insertPreferenze(string $matricola, string $codice_preferenze_inserite){
+            $query = "INSERT INTO Preferenze (CodiceCorso, MatricolaStudente) VALUES (?, ?) ";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss', $codice_preferenze_inserite, $matricola);
+            return $stmt->execute();
+        }
     }
-                
 ?>

@@ -13,8 +13,9 @@ $templateParams["nome"] = $_SESSION["nome"];
 $templateParams["cognome"] = $_SESSION["cognome"];
 $templateParams["email"] = $_SESSION["email"];
 
-$templateParams["preferenzeStudente"] = $dbh->getPreferencePerMatricolaLimit($_SESSION["matricola"], 5);
+$templateParams["preferenzeStudente"] = $dbh->getPreferencePerMatricola($_SESSION["matricola"],3);
 $templateParams["tuttePreferenze"] = $dbh->getCorsi();
+$templateParams["tuttePreferenzeStudente"] = $dbh->getPreferencePerMatricola($_SESSION["matricola"]);
 
 $templateParams["gruppiDelloStudente"] = $dbh->getGruppiPerStudenteLoggato($_SESSION["matricola"]);
 $templateParams["gruppiDiAppartenenza"] = $dbh->getGruppiIscrittoNonCreatore($_SESSION["matricola"]);

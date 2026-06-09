@@ -32,8 +32,12 @@
                     <div class="panel-scroll-content">
                         <?php foreach($templateParams["tuttePreferenze"] as $preference): ?>
                         <div class="pref-check-row">
-                            <label for="<?= $preference["Nome"]?>"><?= $preference["Nome"]?> </label>
-                            <input type="checkbox" id="<?=$preference["Nome"]?>" name="prefs[]" value="<?=$preference["Nome"]?>" />
+                            <label for="<?= $preference["Codice"]?>"><?= $preference["Nome"]?> </label>
+                            <input type="checkbox" id="pref_<?=$preference["Codice"]?>" name="pref_<?=$preference["Codice"];?>" value="<?=$preference["Nome"]?>"
+                            <?php $prfStudente = array_column($templateParams["tuttePreferenzeStudente"], "Nome");
+                            if(in_array($preference["Nome"], $prfStudente)) {
+                                echo 'checked="checked"'; 
+                            }?>/>
                         </div>
                         <?php endforeach ?>
                     </div>

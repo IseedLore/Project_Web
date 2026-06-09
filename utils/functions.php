@@ -3,6 +3,10 @@
         return isset($_SESSION['matricola']);
     }
 
+    function isAdminLoggedIn(){
+        return isset($_SESSION["admin"]);
+    }
+
     function registerLoggedUser(array $user){
         $_SESSION["matricola"] = $user["Matricola"];
         $_SESSION["nome"] = $user["Nome"];

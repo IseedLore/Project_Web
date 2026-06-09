@@ -11,7 +11,7 @@
             <div class="teachers-list">
                 Docenti :
                     <ul>
-                        <?php $templateParams["docenti"] = $dbh->getDocenti($gruppo["CodiceCorso"]); ?>
+                        <?php $templateParams["docenti"] = $dbh->getDocentiPerCorso($gruppo["CodiceCorso"]); ?>
                         <?php foreach($templateParams["docenti"] as $docente):?>
                         <li><?php echo $docente["Nome"] . ' ' . $docente["Cognome"]; ?>
                         <?php endforeach ?>

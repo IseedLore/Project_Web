@@ -31,8 +31,14 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function getDocenti(string $codiceCorso){
-            $stmt = $this->db->prepare("SELECT Docenti.* FROM Docenti, Insegnamenti 
+        public function getDocenti(){
+            $stmt = $this->db->prepare("SELECT * FROM Docenti");
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getDocentiPerCorso(string $codiceCorso){
+            $stmt = $this->db->prepare("SELECT Docenti.* , Insegnamenti.Classe AS Classe FROM Docenti, Insegnamenti 
             WHERE Insegnamenti.CodiceDocente=Docenti.Codice AND Insegnamenti.CodiceCorso=?");
             $stmt->bind_param('s', $codiceCorso);
             $stmt->execute();
@@ -368,5 +374,95 @@
             $stmt->bind_param('ss', $codice_preferenze_inserite, $matricola);
             return $stmt->execute();
         }
+
+        public function checkAdmin(string $username, string $password){
+            $query = "SELECT * FROM Amministratori WHERE Username=? AND Password=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss', $username, $password);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function deleteIscrizioniGruppoCorso(string $corso){
+            $query = "DELETE FROM Iscrizioni WHERE CodiceGruppo IN (SELECT Codice FROM Gruppi WHERE CodiceCorso=?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $corso);
+            return $stmt->execute();
+        }
+
+        public function deleteGruppiCorso(string $corso){
+            $query = "DELETE FROM Gruppi WHERE CodiceCorso=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $corso);
+            return $stmt->execute();
+        }
+
+        public function deleteInsegnamentiCorso(string $corso, int $docente){
+            $query = "DELETE FROM Insegnamenti WHERE CodiceCorso=? AND CodiceDocente=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss', $corso, $docente);
+            return $stmt->execute();
+        }
+
+        public function deleteCorso(string $corso){
+            $query = "DELETE FROM Corsi WHERE codice=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $corso);
+            return $stmt->execute();
+        }
+
+        public function getCorsoPerCodice(string $corso){
+            $query = "SELECT * FROM Corsi WHERE Codice=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $corso);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function insertCorso(string $codice, string $nome, int $cfu, string $descrizione, int $progetto){
+            $query = "INSERT INTO Corsi (Codice, Nome, CFU, Descrizione, ProgettoRichiesto) VALUES(?, ?, ?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssisi', $codice, $nome, $cfu, $descrizione, $progetto);
+            return $stmt->execute();
+        }
+
+        public function insertInsegnamento(int $docente, string $classe, string $corso){
+            $query = "INSERT INTO Insegnamenti (CodiceDocente, Classe, CodiceCorso) VALUES(?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('iss', $docente, $classe, $corso);
+            return $stmt->execute();
+        }
+
+        public function updateGruppiCorso(string $nuovo, string $vecchio){
+            $query = "UPDATE Gruppi SET CodiceCorso=? WHERE CodiceCorso=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss', $nuovo, $vecchio);
+            return $stmt->execute();
+        }
+
+        public function updateCodiceCorso(string $nuovo, string $vecchio){
+            $query = "UPDATE Corsi SET Codice=? WHERE Codice=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss', $nuovo, $vecchio);
+            return $stmt->execute();
+        }
+
+        public function updateCorso(string $codice, string $nome, int $cfu, string $descrizione, int $progetto){
+            $query = "UPDATE Corsi SET Nome=?, CFU=?, Descrizione=?, ProgettoRichiesto=? WHERE Codice=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sisis',  $nome, $cfu, $descrizione, $progetto, $codice);
+            return $stmt->execute();
+        }
+
+        public function getInsegnamentiCorso(string $corso){
+            $query = "SELECT * FROM Insegnamenti WHERE CodiceCorso=?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $corso);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
     }
 ?>

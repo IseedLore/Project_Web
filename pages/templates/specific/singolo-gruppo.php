@@ -30,19 +30,19 @@
             <?php else : ?>
                 <table>
                     <tr>
-                        <th id="data">Data</th>
-                        <th id="orario">Orario</th>
-                        <th id="mod">Modalità</th>
-                        <th id="luogo">Luogo</th>
-                        <th id="note">Note</th>
+                        <th id="data" scope="colgroup">Data</th>
+                        <th id="orario" scope="colgroup">Orario</th>
+                        <th id="mod" scope="colgroup">Modalità</th>
+                        <th id="luogo" scope="colgroup">Luogo</th>
+                        <th id="note" scope="colgroup">Note</th>
                     </tr>
                     <?php foreach($incontri as $incontro):?>
                         <tr>
-                            <td headers="data"><?php echo $incontro["Data"];?></td>
-                            <td headers="orario"><?php echo $incontro["Orario"];?></td>
-                            <td headers="mod"><?php echo $incontro["Modalità"];?></td>
-                            <td headers="luogo"><?php echo $incontro["Luogo"];?></td>
-                            <td headers="note"><?php echo $incontro["Note"];?></td>
+                            <td headers="data" scope="col"><?php echo $incontro["Data"];?></td>
+                            <td headers="orario" scope="col"><?php echo $incontro["Orario"];?></td>
+                            <td headers="mod" scope="col"><?php echo $incontro["Modalità"];?></td>
+                            <td headers="luogo" scope="col"><?php echo $incontro["Luogo"];?></td>
+                            <td headers="note" scope="col"><?php echo $incontro["Note"];?></td>
                         </tr>
                     <?php endforeach; ?>
                 </table>
@@ -65,16 +65,16 @@
                 <p>Numero membri attuali : <?php echo $gruppo["NumeroMembriAttuali"];?></p>
                 <table>
                     <tr>
-                        <th id="nome">Nome</th>
-                        <th id="cognome">Cognome</th>
-                        <th id="email">Email</th>
+                        <th id="nome" scope="colgroup">Nome</th>
+                        <th id="cognome" scope="colgroup">Cognome</th>
+                        <th id="email" scope="colgroup">Email</th>
                     </tr>
                     <?php $studentiIscritti = $dbh->getStudentiIscrittiGruppo($gruppo["CodiceGruppo"]);?>
                     <?php foreach($studentiIscritti as $studente):?>
                         <tr>
-                            <td headers="nome"><?php echo $studente["Nome"];?></td>
-                            <td headers="cognome"><?php echo $studente["Cognome"];?></td>
-                            <td headers="email"><?php echo $studente["Email"];?></td>
+                            <td headers="nome" scope="col"><?php echo $studente["Nome"];?></td>
+                            <td headers="cognome" scope="col"><?php echo $studente["Cognome"];?></td>
+                            <td headers="email" scope="col"><?php echo $studente["Email"];?></td>
                         </tr>
                     <?php endforeach; ?>
                 </table> 
@@ -103,12 +103,12 @@
                         <form action="visualizzazione-gruppo.php" method="GET" >
                             <ul>
                                 <li>
-                                    <label for="nome">Nome : </label>
+                                    <label for="nome" autocomplete="on">Nome : </label>
                                     <input type="text" name="nome" id="nome" value="<?php echo $gruppo["NomeGruppo"];?>"/>
                                 </li>
                                 <li>
                                     <label for="descrizione">Descrizione : </label></br>
-                                    <textarea name="descrizione" id="nome"><?php echo $gruppo["Descrizione"];?></textarea>
+                                    <textarea name="descrizione" id="nome" autocomplete="off"><?php echo $gruppo["Descrizione"];?></textarea>
                                 </li>
                             </ul>
                             <input type="hidden" name="single-group" id="single-group" value="<?php echo $gruppo["CodiceGruppo"];?>"/>
